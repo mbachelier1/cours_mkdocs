@@ -36,9 +36,7 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Mode clair
-  icon:
-    admonition:
-      truc: fontawesome/regular/grin-alt
+
 
 markdown_extensions:
   - meta
@@ -57,7 +55,11 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: false
   - pymdownx.inlinehilite
-  - pymdownx.superfences
+  - pymdownx.superfences:
+     custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.keys
   - pymdownx.tabbed
   - pymdownx.betterem:
@@ -75,14 +77,21 @@ markdown_extensions:
 plugins:
   - search
   - macros
+#  - markdownmermaid
 
 extra:
   social:
     - icon: fontawesome/solid/paper-plane
-      link: mailto:uglimusic@gmail.com
+      link: mailto:franck.chambon@ac-aix-marseille.fr
       name: Écrire à l'auteur
+  io_url: D:/GitHub/cours_mkdocs/docs/
 
 extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js
+  - javascripts/mermaid.js
+
+extra_css:
+  - stylesheets/extra.css
