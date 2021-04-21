@@ -84,7 +84,7 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:franck.chambon@ac-aix-marseille.fr
       name: Écrire à l'auteur
-  io_url: D:/GitHub/cours_mkdocs/docs/
+  io_url: https://uglimusic.github.io/cours_mkdocs/
 
 extra_javascript:
   - javascripts/config.js
