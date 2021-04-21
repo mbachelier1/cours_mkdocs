@@ -4,7 +4,6 @@ nav:
   - 'Accueil': 'index.md'
   - 'NSI1' : 'nsi1/index.md'
   - 'NSI2' :
-    - 'Accueil' : 'nsi2/index.md'
     - 'CH24 : diviser pour régner' : 'nsi2/ch24/diviser_pour_regner.md'
 theme:
   name: material
@@ -82,7 +81,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/solid/paper-plane
-      link: mailto:franck.chambon@ac-aix-marseille.fr
+      link: mailto:uglimusic@gmail.com
       name: Écrire à l'auteur
   io_url: https://uglimusic.github.io/cours_mkdocs/
 
