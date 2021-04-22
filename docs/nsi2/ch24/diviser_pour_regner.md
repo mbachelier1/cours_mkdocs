@@ -34,10 +34,6 @@ Déplacer un palet de B vers C
 Déplacer un palet de A vers C
 ```
 
-<iframe src="https://console.basthon.fr/?" width=100% height=400px></iframe>
-
-
-
 ## Le principe
 
 L'exemple précédent est caractéristique de la stratégie «diviser pour régner», qui consiste à
@@ -82,10 +78,14 @@ Ensuite, on a besoin d'une fonction `fusion` qui, étant donnée deux listes tri
 def fusion(lst1: list, lst2: list) -> list:
     if not lst1 or not lst2: # si l'une des listes est vide
         return lst1 or lst2 # alors on renvoie l'autre
-    if lst1[0] < lst2[0]: # sinon on compare leurs premiers éléments
-        return [lst1[0]] + fusion(lst1[1:], lst2) # on place le plus petit en tête et on fusionne le reste
     else:
-        return [lst2[0]] + fusion(lst1, lst2[1:])
+        a, b = lst1[0], lst2[0]
+        if a < b : # sinon on compare leurs premiers éléments
+            return [a] + fusion(lst1[1:], lst2) # on place le plus petit en tête et on fusionne le reste
+        elif b > a:
+            return [b] + fusion(lst1, lst2[1:])
+        else : # dans le cas où les 2 éléments sont égaux on peut les placer tous les deux
+            return [a, b]+ fusion(lst1[1:], lst2[1:])
 ```
 
 Enfin, la fonction `tri_fusion`.
@@ -97,3 +97,15 @@ def tri_fusion(lst: list) -> list:
     lst1, lst2 = scinde(lst) # sinon on scinde
     return fusion(tri_fusion(lst1), tri_fusion(lst2)) # et on fusionne les sous-listes triées
 ```
+
+## Complexité du tri fusion
+
+notons $n$ la taille de la liste à trier et considérons comme seule *opération élémentaire* le fait d'accéder à un élément 
+d'une liste.
+
+
+À chaque appel récursif, la somme des tailles des deux listes diminue au minimum de 1 : ainsi la complexité de `fusion` 
+est au plus $n$, elle est en $\mathcal{O}(n)$.
+
+Ainsi (ne rentrons pas dans les détails) puisque la taille de la 
+
