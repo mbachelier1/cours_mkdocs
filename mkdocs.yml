@@ -83,8 +83,8 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:uglimusic@gmail.com
       name: Écrire à l'auteur
-  io_url: https://uglimusic.github.io/cours_mkdocs/
-
+  github: https://uglimusic.github.io/cours_mkdocs/
+  local: D:/GitHub/cours_mkdocs/site/
 extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6

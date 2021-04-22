@@ -19,7 +19,7 @@ def hanoi(n: int, depart: str, interm: str, dest: str) -> None:
 L'appel
 
 ```python
-hanoi(10, 'A', 'B', 'C')
+hanoi(3, 'A', 'B', 'C')
 ```
 
 affiche
@@ -33,6 +33,10 @@ Déplacer un palet de B vers A
 Déplacer un palet de B vers C
 Déplacer un palet de A vers C
 ```
+
+<iframe src="https://console.basthon.fr/?" width=100% height=400px></iframe>
+
+
 
 ## Le principe
 
@@ -76,10 +80,10 @@ Ensuite, on a besoin d'une fonction `fusion` qui, étant donnée deux listes tri
 
 ```python
 def fusion(lst1: list, lst2: list) -> list:
-    if not lst1 or not lst2:
-        return lst1 or lst2
-    if lst1[0] < lst2[0]:
-        return [lst1[0]] + fusion(lst1[1:], lst2)
+    if not lst1 or not lst2: # si l'une des listes est vide
+        return lst1 or lst2 # alors on renvoie l'autre
+    if lst1[0] < lst2[0]: # sinon on compare leurs premiers éléments
+        return [lst1[0]] + fusion(lst1[1:], lst2) # on place le plus petit en tête et on fusionne le reste
     else:
         return [lst2[0]] + fusion(lst1, lst2[1:])
 ```
@@ -88,8 +92,8 @@ Enfin, la fonction `tri_fusion`.
 
 ```python
 def tri_fusion(lst: list) -> list:
-    if len(lst) < 2:
+    if len(lst) < 2: # cas d'arrêt
         return lst
-    lst1, lst2 = scinde(lst)
-    return fusion(tri_fusion(lst1), tri_fusion(lst2))
+    lst1, lst2 = scinde(lst) # sinon on scinde
+    return fusion(tri_fusion(lst1), tri_fusion(lst2)) # et on fusionne les sous-listes triées
 ```
