@@ -47,6 +47,8 @@ L'exemple précédent est caractéristique de la stratégie «diviser pour régn
 
 ## Le tri fusion
 
+### Principe
+
 ![merge_sort](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Merge-sort-example-300px.gif/220px-Merge-so
 rt-example-300px.gif){align=right width=33%} Voici un deuxième exemple d'application de cette stratégie : le *tri
 fusion*. On doit cet algorithme à
@@ -90,7 +92,7 @@ def fusion(lst1: list, lst2: list) -> list:
 
 Enfin, la fonction `tri_fusion`.
 
-```python
+```python 
 def tri_fusion(lst: list) -> list:
     if len(lst) < 2: # cas d'arrêt
         return lst
@@ -98,14 +100,54 @@ def tri_fusion(lst: list) -> list:
     return fusion(tri_fusion(lst1), tri_fusion(lst2)) # et on fusionne les sous-listes triées
 ```
 
-## Complexité du tri fusion
+### Complexité du tri fusion
 
-notons $n$ la taille de la liste à trier et considérons comme seule *opération élémentaire* le fait d'accéder à un élément 
+Notons $n$ la taille de la liste à trier et considérons comme seule *opération élémentaire* le fait d'accéder à un élément 
 d'une liste.
 
+En classe de Première, nous avons étudié des algorithmes de tri dits «lents», car de complexité *quadratique* : pour une
+liste de taille $n$, le nombre d'opérations élémentaires pour trier ce tableau est «de l'ordre de $n^2$».
 
-À chaque appel récursif, la somme des tailles des deux listes diminue au minimum de 1 : ainsi la complexité de `fusion` 
-est au plus $n$, elle est en $\mathcal{O}(n)$.
+Ainsi, pour trier une liste de $10^6$ entiers avec le tri par sélection (par exemple), le nombre d'opérations élémentaires 
+nécessaires est de l'ordre de $10^{12}$.
+    
+!!! info "Complexité du tri fusion"
+    Le nombre d'opérations élémentaires nécessaires pour trier une liste de taille $n$ par la méthode du tri fusion est 
+    de l'ordre de $n\times\ln n$.
+    
+    $\ln n$ est le *logarithme néperien de $n$* mais peut être remplacé par le logarithme en base 2 ou 
+    en base 10 sans changer les ordres de grandeur.
 
-Ainsi (ne rentrons pas dans les détails) puisque la taille de la 
+!!! example "Exemple"
+    Pour trier une liste de $10^6$ entiers, il faudra de l'ordre de 6 millions d'opérations élémentaires.
 
+!!! danger "Vérification expérimentale"
+    On peut vérifier ce résultat expérimentalement [ici](http://capytale2.ac-paris.fr) (code activité : `26f3-15504`).
+
+## Rotation d'une image carrée d'un quart de tour
+
+On suppose qu'on dispose d'une image carrée de côté $n$ pixels, où $n$ est une puissance de 2.
+
+<center><img src="../img/turing.png" width="50%"></center>
+
+Pour l'exemple voic une photo (colorisée) carrée d'[Alan Turing](https://fr.wikipedia.org/wiki/Alan_Turing){width 50%} de côté 512 pixels.
+
+On aimerait faire subir un quart de tour à cette photo (dans le sens antihoraire) en utilisant une stratégie de type 
+«diviser pour régner». On va procéder ainsi :
+
+![rotation_principe](../img/rotation_principe.png){width=50% align=right}
+
+1. On partage l'image en 4 carrés de côté deux fois moindre.
+2. On fait tourner ces 4 carrés.
+3. On fait subir une *permutation circulaire* aux 4 carrés
+
+À l'étape 2, pour faire tourner les 4 carrés, on se retrouve avec le même problème mais avec des carrés de côté 2 fois plus petits.
+On répète donc le processus jusqu'à n'avoir plus que des carrés de côté 1 pixel (sur lesquels il n'y a pas besoin de 
+faire quoi que soit).
+
+Voici ce que cela donne
+
+<center><img src="../img/turing.gif" width="50%"></center>
+
+!!! danger "Programmation de la rotation d'un quart de tour d'une image carrée"
+    On peut la retrouver [ici](http://capytale2.ac-paris.fr) (code activité : `f7ca-15506`).

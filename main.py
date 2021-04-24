@@ -11,17 +11,16 @@ def define_env(env):
         path = '/'.join([x for x in path.rstrip('/').split('/')[:-1]]) + '/' + exo
         return f"""<iframe src="https://console.basthon.fr/?from={path}" width=100% height={hauteur}></iframe>"""
 
-    # TODO : fix pyf
     @env.macro
-    def pyf(filename: str):
-        """
-        Displays the file as a python source code
-        :param filename: str
-        :return: None
-        """
-        if local_deployment:
-            path = env.variables.local + env.variables.page.url
-            path = path + 'scripts/' + filename + '.py'
-            return """```python
---8<---  "{path}"
+    def script(lang: str, nom: str) -> str:
+        return f"""```{lang}
+--8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{nom}"
 ```"""
+
+    @env.macro
+    def py(nom: str) -> str:
+        return script('python', "scripts/" + nom + ".py")
+
+    @env.macro
+    def pyl(expression :str)->str:
+        return f"""`#!python {expression}`"""

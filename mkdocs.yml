@@ -50,7 +50,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.details
   - pymdownx.highlight:
-      linenums: true
+      linenums: false
   - pymdownx.tasklist:
       custom_checkbox: false
   - pymdownx.inlinehilite
