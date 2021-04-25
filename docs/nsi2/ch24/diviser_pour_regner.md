@@ -159,7 +159,7 @@ Voici ce que cela donne
     1. Expliquer pourquoi la recherche dichotomique d'un élément dans une liste d'entiers triés dans l'ordre 
     croissant peut être vue comme un exemple de stratégie «diviser pour régner».
 
-    2. Programmer la recherche dichotomique de manière récursive
+    2. Programmer la recherche dichotomique de manière récursive.
 
 ??? note "Solution"
     
