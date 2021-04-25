@@ -4,7 +4,9 @@ nav:
   - 'Accueil': 'index.md'
   - 'NSI1' : 'nsi1/index.md'
   - 'NSI2' :
+    - 'Infos' : 'nsi2/index.md'
     - 'CH24 : diviser pour régner' : 'nsi2/ch24/diviser_pour_regner.md'
+    - 'CH25 : programmation dynamique' : 'nsi2/ch25/programmation_dynamique.md'
 theme:
   name: material
   font: false
