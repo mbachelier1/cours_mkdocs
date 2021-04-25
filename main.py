@@ -18,8 +18,14 @@ def define_env(env):
 ```"""
 
     @env.macro
-    def py(nom: str) -> str:
-        return script('python', "scripts/" + nom + ".py")
+    def script_admo(lang: str, nom: str) -> str:
+        return f"""```{lang}
+    --8<---  "docs/""" + os.path.dirname(env.variables.page.url.rstrip('/')) + f"""/{nom}"
+    ```"""
+
+    @env.macro
+    def py_admo(nom: str) -> str:
+        return script_admo('python', "scripts/" + nom + ".py")
 
     @env.macro
     def pyl(expression :str)->str:

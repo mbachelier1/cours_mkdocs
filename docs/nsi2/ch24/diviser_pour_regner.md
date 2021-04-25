@@ -150,4 +150,20 @@ Voici ce que cela donne
 <center><img src="../img/turing.gif" width="50%"></center>
 
 !!! danger "Programmation de la rotation d'un quart de tour d'une image carrée"
-    On peut la retrouver [ici](http://capytale2.ac-paris.fr) (code activité : `f7ca-15506`).
+    On peut la retrouver [ici](http://capytale2.ac-paris.fr) (code activité : `ad82-15702`).
+
+## Exercices
+
+!!! note "Exercice : Recherche dichotomique"
+
+    1. Expliquer pourquoi la recherche dichotomique d'un élément dans une liste d'entiers triés dans l'ordre 
+    croissant peut être vue comme un exemple de stratégie «diviser pour régner».
+
+    2. Programmer la recherche dichotomique de manière récursive
+
+??? note "Solution"
+    
+    Pour savoir si un élément appartient à la liste, on regarde celui qui est «à peu près au milieu». Si c'est le bon
+    c'est terminé, sinon on fait de même avec la sous-liste des éléments précédents et avec celle des éléments suivants.
+
+    {{py_admo("dichotomie")}}
