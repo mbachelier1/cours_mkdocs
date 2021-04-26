@@ -135,7 +135,7 @@ Pour l'exemple voic une photo (colorisée) carrée d'[Alan Turing](https://fr.wi
 On aimerait faire subir un quart de tour à cette photo (dans le sens antihoraire) en utilisant une stratégie de type 
 «diviser pour régner». On va procéder ainsi :
 
-![rotation_principe](../img/rotation_principe.png){width=50% align=right}
+![rotation_principe](../img/rotation_principe.svg){width=50% align=right}
 
 1. On partage l'image en 4 carrés de côté deux fois moindre.
 2. On fait tourner ces 4 carrés.

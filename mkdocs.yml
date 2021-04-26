@@ -2,8 +2,10 @@ site_name: "NSI au lycée Rabelais de Saint Brieuc"
 
 nav:
   - 'Accueil': 'index.md'
-  - 'NSI1' : 'nsi1/index.md'
-  - 'NSI2' :
+  - 'NSI1':
+    -  'Infos' : 'nsi1/index.md'
+    - 'Activité : initiation au shell linux' : 'nsi1/initiation_au_shell_linux/activite.md'
+  - 'NSI2':
     - 'Infos' : 'nsi2/index.md'
     - 'CH24 : diviser pour régner' : 'nsi2/ch24/diviser_pour_regner.md'
     - 'CH25 : programmation dynamique' : 'nsi2/ch25/programmation_dynamique.md'

@@ -14,11 +14,11 @@ Si on la programme *naïvement* de manière récursive, voici ce qu'on obtient :
 
 Or, voici l'arbre des appels récursifs lors de l'exécution de `fibo(4)` :
 
-![fibo_4](../img/fibo_4.png){width=75%}
+![fibo_4](../img/fibo_4.svg){width=75%}
 
 Et pour `fibo(5)` on obtient :
 
-![fibo_5](../img/fibo_5.png){width=75%}
+![fibo_5](../img/fibo_5.svg){width=75%}
 
 Lors de cet appel, `fibo(3)` est appelée 2 fois, `fibo(2)` 3 fois, `fibo(1)` 5 fois et `fibo(0)` 3 fois !
 
@@ -28,10 +28,9 @@ penser !
 Notre stratégie, de type « diviser pour régner », décompose le calcul de `fibo(n)` en 2 calculs plus simples, mais *ces
 problèmes ne sont pas indépendants* , comme l'illustre le graphe suivant, obtenu à partir du schéma précédent.
 
-![fibo_5](../img/fibo_5_graphe.png){width=40%}
+![fibo_5](../img/fibo_5_graphe.svg){width=40%}
 
 ## La mémoïsation 
-
 
 !!! info "Définition : mémoïsation"
     
