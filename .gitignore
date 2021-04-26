@@ -2,3 +2,5 @@ site/
 .idea/
 _temp/
 __pycache__/
+.bat
+.sh
