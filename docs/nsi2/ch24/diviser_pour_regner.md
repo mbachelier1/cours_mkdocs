@@ -167,3 +167,11 @@ Voici ce que cela donne
     c'est terminé, sinon on fait de même avec la sous-liste des éléments précédents et avec celle des éléments suivants.
 
     {{py_admo("dichotomie")}}
+
+!!! note "Algorithme de Karatsuba"
+
+    Il s'agit d'un algorithme qui applique la stratégie « diviser pour régner » pour effectuer des multiplications de 
+    manière efficace.
+
+    1. Chercher sur Internet ce qu'est cet algorithme.
+    2. Programmer cet algorithme en Python.
