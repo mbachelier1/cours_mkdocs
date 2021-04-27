@@ -122,7 +122,7 @@ nécessaires est de l'ordre de $10^{12}$.
     Pour trier une liste de $10^6$ entiers, il faudra de l'ordre de 6 millions d'opérations élémentaires.
 
 !!! danger "Vérification expérimentale"
-    On peut vérifier ce résultat expérimentalement [ici](http://capytale2.ac-paris.fr) (code activité : `26f3-15504`).
+    [On peut vérifier ce résultat expérimentalement ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/26f3-15504).
 
 ## Rotation d'une image carrée d'un quart de tour
 
@@ -150,7 +150,7 @@ Voici ce que cela donne
 <center><img src="../img/turing.gif" width="50%"></center>
 
 !!! danger "Programmation de la rotation d'un quart de tour d'une image carrée"
-    On peut la retrouver [ici](http://capytale2.ac-paris.fr) (code activité : `ad82-15702`).
+     [On peut la retrouver ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/ad82-15702).
 
 ## Exercices
 
