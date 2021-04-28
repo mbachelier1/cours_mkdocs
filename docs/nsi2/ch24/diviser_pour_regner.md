@@ -175,3 +175,41 @@ Voici ce que cela donne
 
     1. Chercher sur Internet ce qu'est cet algorithme.
     2. Programmer cet algorithme en Python.
+
+??? hint "Voir des indices"
+
+    === "Principe" 
+        Si $x$ et $y$ s'écrivent **au plus** avec $2n$ bits, alors on peut les écrire
+        $\begin{cases}
+        x &= a\times 2^n + b\\
+        y &= c\times 2^n +d\\
+        \end{cases}$ , où $a$, $b$, $c$ et $d$ s'écrivent **au plus** $n$ bits.
+
+        Mais alors $x\times y = ab2^{2n}+(ac + bd -(a-b)(c-d))2^n+bd$.
+
+        Dans cette écriture, il y a 3 multiplications à faire avec des nombres s'écrivant avec **au plus** $n$ bits:
+        
+        - $ac$
+        - $bd$
+        - $(a-b)(c-d)$
+
+        Le reste (additions et multiplication par $2^{2n}$ ou $2^n$ ne prend pas beaucoup de temps à faire (les additions 
+        sont plus rapides que les multiplications et multiplier un nombre par $2^n$ revient à lui ajouter $n$ bits valant 0 à droite).
+
+        La stratégie « diviser pour régner » vient du fait qu'on calcule ces 3 produits en appliquant de nouveau l'algorithme de Karatsuba.
+
+    === "Indice de programmation 1"
+        On peut déjà code une fonction `#!python size` qui
+        - en entrée prend un `#!python int` x;
+        - renvoie le nombre de bits de l'écriture binaire de x.
+        Pour ce faire il suffit de diviser x par 2 (avec `#!python //`) jusqu'à trouver 0. 
+
+    === "Indice de programmation 2"
+        - Pour multiplier `#!python x` par $2^n$ on peut utiliser l'opérateur `#!python <<` : `#!python x << n`.
+        - Pour diviser, utiliser `#!python >>`.
+        - Ainsi on pourra écrire
+            ```python
+                a = x >> (2 ** n)
+                b = x % (2 ** n)
+            ```
+            *Et caetera.*
