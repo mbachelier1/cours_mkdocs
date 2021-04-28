@@ -1,6 +1,3 @@
-# Programmation dynamique
-
-
 ## Un exemple bien connu
 
 Nous commençons à bien connaître la suite de Fibonacci
@@ -60,5 +57,6 @@ Le fait d'utiliser la mémoïsation rend les choses bien plus rapides !
 
 !!! danger "Comparaison de l'efficacité des 2 méthodes"
 
-    L'activité est [ici](http://capytale2.ac-paris.fr) (code activité : `xxxx-xxxx`).
+    [L'activité est à faire ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/89a4-17353).
+
 
