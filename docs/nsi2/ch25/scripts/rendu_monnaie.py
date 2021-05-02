@@ -15,7 +15,6 @@ def rendu_dyn(somme):
     return solutions[somme]
 
 def rendu_dyn(somme,liste = None):
-    if not l
     if somme in solutions:
         return solutions[somme]
     if somme in liste_pieces:
