@@ -1,4 +1,4 @@
-liste_valeurs = [500, 200, 100, 50, 20, 10, 5, 2, 1]
+liste_valeurs = [500, 200, 100, 50, 20, 10, 5, 2, 1] # la liste doit être triée dans l'ordre décroissantr
 
 
 def rendu_monnaie(montant: int) -> list:

@@ -173,7 +173,7 @@ Ce qu'il faut retenir c'est que lors de la transmission
 
 
 ![utili](../img/modele_5_couches_down.svg){width=33%}
-
+``
 Il faut retenir que chaque couche dépaquète le paquet (ou trame) qui lui est adressé en enlevant l'en-tête correspondant 
 et passe le relais à la couche du dessus.
 

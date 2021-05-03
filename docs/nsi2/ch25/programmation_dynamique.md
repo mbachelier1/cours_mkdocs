@@ -143,8 +143,6 @@ que $R(3)$, *et caetera* : les sous-problèmes sont loins d'être indépendants,
 
 ## Alignement de séquences
 
-### Exemple
-
 On dispose de deux chaînes de caractères : `A`, qui vaut `INFORMATIQUE`, et `B`, qui vaut `NUMERIQUE`.
 On aimerait mettre ces deux chaînes de caractères en correspondance de la manière suivante :
 
@@ -164,3 +162,18 @@ Ce n'est pas un problème simple, surtout quand les chaînes sont longues :
 
 Cette technique est utilisée en biologie pour mettre (entre autres) en évidence des parties 
 communes à deux séquences d'ADN.
+
+Encore une fois, on décompose un problème en sous-problèmes non-indépendants, comme le montre l'exemple
+
+![adn](../img/basse.gif)
+
+Dont le graphe de résolution est le suivant :
+
+![adn](../img/align-graphe.svg)
+
+!!! question "Exercice"
+
+    === "Question"
+        Quel est le chemin qui correspond à la solution animée ?
+    === "Réponse"
+        Bas, gauche, gauche, droite, droite, bas.

@@ -1,6 +1,7 @@
 from PIL import Image
 import pygame
 from os import listdir
+
 BLACK = pygame.Color(0, 0, 0)
 WHITE = pygame.Color(255, 255, 255)
 RED = pygame.Color(255, 0, 0)
@@ -42,14 +43,18 @@ def aligner(x, y):
     return score[n - 1][m - 1]
 
 
-#X = "TTCACCAGAAAAGAACACGGTAGTTACGAGTCCAATATTGTTAAACCG"
-#Y = "TTCACGAAAAAGTAACGGGCCGATCTCCAATAAGTGCGACCGAG"
-#X = "INFORMATIQUE"
-#Y = "NUMERIQUE"
-X = "BAGUE"
-Y = "BATTUE"
+X = "TTCACCAGAAAAGAACACGGTAGTTACGAGTCCAATATTGTTAAACCG"
+Y = "TTCACGAAAAAGTAACGGGCCGATCTCCAATAAGTGCGACCGAG"
+# X = "INFORMATIQUE"
+# Y = "NUMERIQUE"
+# X = "BASSE"
+# Y = "BUSE"
 longueur, sol_X, sol_Y = aligner(X, Y)
+print(longueur)
+print(sol_X)
+print(sol_Y)
 
+"""
 pygame.init()
 font = pygame.font.Font(pygame.font.match_font('consolas'), 32)
 solution_graphiqueX = font.render(sol_X, True, BLACK, WHITE)
@@ -114,3 +119,4 @@ while go_on:
 pygame.quit()
 
 make_gif('tmp')
+"""
