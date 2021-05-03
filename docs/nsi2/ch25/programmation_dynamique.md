@@ -76,7 +76,7 @@ Il va donc falloir trouver des exemples pour lesquels
 - les sous-problèmes ne sont pas indépendants : sans programmation dynamique on calculerait plusieurs fois les sous
   solutions.
 
-## L'exemple du rendu de monnaie
+## Rendu de monnaie
 
 Nous avons déjà rencontré cette situation l'année dernière, on y appliquait un algorithme *glouton* : pour rendre un
 montant donné, on commence par rendre les billets/pièces qui ont le plus de valeur et ainsi de suite.
@@ -141,8 +141,26 @@ que $R(3)$, *et caetera* : les sous-problèmes sont loins d'être indépendants,
 
     [L'activité est ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/be6f-18636).
 
-## L'exemple de l'alignement de séquences
+## Alignement de séquences
+
+### Exemple
+
+On dispose de deux chaînes de caractères : `A`, qui vaut `INFORMATIQUE`, et `B`, qui vaut `NUMERIQUE`.
+On aimerait mettre ces deux chaînes de caractères en correspondance de la manière suivante :
+
+- On place les 2 chaînes l'une en desous de l'autre;
+- Si les premiers caractères des deux chaînes coïncident, alors on passe aux caractèrex suivant;
+- Sinon, on va ajouter un trou dans une des deux chaînes (mais laquelle ?), symbolisé par un `-`
+  et on passe aux caractères suivant.
+  
+Voici ce que cela donne :
 
 ![enorme](../img/enorme.gif){width=50%}
 
+L'objectif est d'aligner le **maximum** de lettre (donc de mettre le moins de `-` possible).
+Ce n'est pas un problème simple, surtout quand les chaînes sont longues :
+
 ![adn](../img/adn.gif)
+
+Cette technique est utilisée en biologie pour mettre (entre autres) en évidence des parties 
+communes à deux séquences d'ADN.
