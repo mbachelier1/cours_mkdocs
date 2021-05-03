@@ -1,76 +1,14 @@
-import os
-from time import sleep
-
-BLACK_FG = '[30m'
-RED_FG = '[31m'
-GREEN_FG = '[32m'
-YELLOW_FG = '[33m'
-BLUE_FG = '[34m'
-MAGENTA_FG = '[35m'
-CYAN_FG = '[36m'
-WHITE_FG = '[37m'
-BLACK_BG = '[40m'
-RED_BG = '[41m'
-GREEN_BG = '[42m'
-YELLOW_BG = '[43m'
-BLUE_BG = '[44m'
-MAGENTA_BG = '[45m'
-CYAN_BG = '[46m'
-WHITE_BG = '[47m'
-RST = '[0m'
+from PIL import Image
+import pygame
+from os import listdir
+BLACK = pygame.Color(0, 0, 0)
+WHITE = pygame.Color(255, 255, 255)
+RED = pygame.Color(255, 0, 0)
+BLUE = pygame.Color(0, 0, 255)
+PADDING = 10
 
 
-def clear() -> None:
-    """
-    Clears console
-    """
-    os.system('cls')
-
-
-def echo(string) -> None:
-    """
-    Displays a message in the console
-    :param string: str
-    """
-    os.system('echo ' + str(string) + RST)
-
-
-def aligner_rec(x, y, i, j):
-    '''renvoie le score(nbre de trous minimal)
-    de x et y'''
-    if i == 0:  # si la chaine x est vide
-        return j
-    elif j == 0:
-        return i
-    else:
-        # on s'intéresse au dernier caractère
-        if x[i - 1] == y[j - 1]:
-            return aligner_rec(x, y, i - 1, j - 1)
-        else:
-            return 1 + min(aligner_rec(x, y, i, j - 1), aligner_rec(x, y, i - 1, j))
-
-
-def aligner_dyn(x, y):
-    n = len(x) + 1
-    m = len(y) + 1
-    score = [[0 for _ in range(m)] for _ in range(n)]  # tableau des scores
-
-    # score lorsque j=0
-    for i in range(n):
-        score[i][0] = i
-
-    # score lorsque i=0
-    for j in range(m):
-        score[0][j] = j
-
-    # score[i][j] sinon
-    for i in range(1, n):
-        for j in range(1, m):
-            score[i][j] = 1 + min(score[i][j - 1], score[i - 1][j]) if x[i - 1] != y[j - 1] else score[i - 1][j - 1]
-    return score[n - 1][m - 1]
-
-
-def aligner_dyn_affiche(x, y):
+def aligner(x, y):
     n = len(x) + 1
     m = len(y) + 1
     score = [[(0, '', '') for _ in range(m)] for _ in range(n)]  # tableau des scores et des motifs obtenus
@@ -104,67 +42,73 @@ def aligner_dyn_affiche(x, y):
     return score[n - 1][m - 1]
 
 
-def creer_solution(mot1, mot2):
-    r, s1, s2 = aligner_dyn_affiche(mot1, mot2)
-    echo(' ')
-    echo(' ')
-
-    echo('  ' + s1)
-    echo('  ' + s2)
-    echo(' ')
-    echo(' ')
-    input()
-    sleep(1)
-    echo('x')
-    sleep(1)
-    echo('x')
-    sleep(1)
-    clear()
-    sleep(1)
-    i = 0
-    j = 0
-    debut1 = BLUE_FG
-    debut2 = BLUE_FG
-    clear()
-    echo(' ')
-    echo(' ')
-
-    echo('  ' + BLUE_FG + mot1)
-    echo('  ' + BLUE_FG + mot2)
-    echo(' ')
-    echo(' ')
-    sleep(1)
-
-    for k in range(len(s1)):
-        lettre1 = s1[k]
-        lettre2 = s2[k]
-        if lettre1 != '-':
-            i += 1
-        if lettre2 != '-':
-            j += 1
-        if lettre1 == lettre2:
-            debut1 += RED_FG + lettre1 + BLUE_FG
-            debut2 += RED_FG + lettre1 + BLUE_FG
-        else:
-            debut1 += lettre1
-            debut2 += lettre2
-        clear()
-        echo(' ')
-        echo(' ')
-
-        echo('  ' + debut1 + BLUE_FG + mot1[i:] + RST)
-        echo('  ' + debut2 + BLUE_FG + mot2[j:] + RST)
-        echo('  ' + ' ' * k + '^^')
-        echo(' ')
-        echo(' ')
-
-        sleep(0.5)
-
-
 X = "TTCACCAGAAAAGAACACGGTAGTTACGAGTCCAATATTGTTAAACCG"
 Y = "TTCACGAAAAAGTAACGGGCCGATCTCCAATAAGTGCGACCGAG"
+X = "INFORMATIQUE"
+Y = "NUMERIQUE"
+longueur, sol_X, sol_Y = aligner(X, Y)
+
+pygame.init()
+font = pygame.font.Font(pygame.font.match_font('consolas'), 32)
+solution_graphiqueX = font.render(sol_X, True, BLACK, WHITE)
+solution_graphiqueY = font.render(sol_Y, True, BLACK, WHITE)
+
+w, h = solution_graphiqueX.get_size()
+WIDTH = w + 2 * PADDING
+HEIGHT = 2 * h + 3 * PADDING
+window = pygame.display.set_mode((WIDTH, HEIGHT))
+window.fill(WHITE)
+pygame.display.flip()
+clock = pygame.time.Clock()
+go_on = True
+debut_X = ""
+debut_Y = ""
+step = font.render("X", True, BLACK, WHITE).get_width()
+print(step)
+i = -2
 
 
-creer_solution(X, Y)
+def count_letters(s: str) -> int:
+    return len([x for x in s if x != '-'])
 
-input()
+
+def make_gif(folder):
+    images = [Image.open(folder + '/' + file) for file in listdir(folder)]
+    images[0].save('resul.gif', save_all=True, append_images=images[1:], optimize=True, duration=1000, loop=0)
+
+while go_on:
+    if i == -2:
+        i += 1
+    elif i < len(sol_X):
+        debut_X = sol_X[i]
+        debut_Y = sol_Y[i]
+        fin_X = X[count_letters(sol_X[:i + 1]):]
+        fin_Y = Y[count_letters(sol_Y[:i + 1]):]
+        print(debut_X, '/', fin_X)
+        print(debut_Y, '/', fin_Y)
+        if debut_X == debut_Y:
+            color = RED
+        else:
+            color = BLUE
+        if i != -1:
+            debut_X_G = font.render(debut_X, True, color, WHITE)
+            debut_Y_G = font.render(debut_Y, True, color, WHITE)
+            window.blit(debut_X_G, (PADDING + i * step, PADDING))
+            window.blit(debut_Y_G, (PADDING + i * step, 2 * PADDING + h))
+
+        fin_X_G = font.render(fin_X, True, BLACK, WHITE)
+        fin_Y_G = font.render(fin_Y, True, BLACK, WHITE)
+
+        window.blit(fin_X_G, (PADDING + (i + 1) * step, PADDING))
+        window.blit(fin_Y_G, (PADDING + (i + 1) * step, 2 * PADDING + h))
+        i += 1
+        pygame.display.flip()
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            go_on = False
+    clock.tick(10)
+    pygame.image.save(window,"tmp/"+str(i+1).zfill(3)+'.png')
+pygame.quit()
+
+make_gif('tmp')

@@ -140,3 +140,9 @@ que $R(3)$, *et caetera* : les sous-problèmes sont loins d'être indépendants,
 !!! danger "Programmation dynamique du rendu de monnaie optimal"
 
     [L'activité est ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/be6f-18636).
+
+## L'exemple de l'alignement de séquences
+
+![enorme](../img/enorme.gif){width=50%}
+
+![adn](../img/adn.gif)
