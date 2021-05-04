@@ -60,7 +60,7 @@ Le fait d'utiliser la mémoïsation rend les choses bien plus rapides !
 
 !!! danger "Comparaison de l'efficacité des 2 méthodes"
 
-    [L'activité est ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/89a4-17353).
+    [L'activité est ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/89a4-17353)
 
 ## Une remarque importante
 
@@ -139,7 +139,7 @@ que $R(3)$, *et caetera* : les sous-problèmes sont loins d'être indépendants,
 
 !!! danger "Programmation dynamique du rendu de monnaie optimal"
 
-    [L'activité est ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/be6f-18636).
+    [L'activité est ici.](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/be6f-18636)
 
 ## Alignement de séquences
 
@@ -147,27 +147,34 @@ On dispose de deux chaînes de caractères : `A`, qui vaut `INFORMATIQUE`, et `B
 On aimerait mettre ces deux chaînes de caractères en correspondance de la manière suivante :
 
 - On place les 2 chaînes l'une en desous de l'autre;
-- Si les premiers caractères des deux chaînes coïncident, alors on passe aux caractèrex suivant;
+- Si les derniers caractères des deux chaînes coïncident, alors on passe aux caractères suivants;
 - Sinon, on va ajouter un trou dans une des deux chaînes (mais laquelle ?), symbolisé par un `-`
   et on passe aux caractères suivant.
-  
+
 Voici ce que cela donne :
 
 ![enorme](../img/enorme.gif){width=50%}
 
-L'objectif est d'aligner le **maximum** de lettre (donc de mettre le moins de `-` possible).
+
+Dans cette situation on a besoin de 9 tirets, pas moins.
+
+L'objectif est d'aligner le **maximum** de lettres (donc de mettre le moins de `-` possible).
 Ce n'est pas un problème simple, surtout quand les chaînes sont longues :
 
 ![adn](../img/adn.gif)
 
+Ici pas moins de 26 tirets sont nécessaires.
+
 Cette technique est utilisée en biologie pour mettre (entre autres) en évidence des parties 
 communes à deux séquences d'ADN.
 
-Encore une fois, on décompose un problème en sous-problèmes non-indépendants, comme le montre l'exemple
+Encore une fois, on décompose un problème en sous-problèmes non-indépendants, comme le montre l'exemple suivant, qui nécéssite 4 tirets : 
 
 ![adn](../img/basse.gif)
 
-Dont le graphe de résolution est le suivant :
+
+
+Et dont le graphe de résolution est le suivant :
 
 ![adn](../img/align-graphe.svg)
 
@@ -177,3 +184,27 @@ Dont le graphe de résolution est le suivant :
         Quel est le chemin qui correspond à la solution animée ?
     === "Réponse"
         Bas, gauche, gauche, droite, droite, bas.
+
+Le graphe de résolution n'est pas un arbre : les sous-problèmes ne sont pas indépendants, on a tout intérêt à utiliser 
+la programmation dynamique.
+
+Notons aussi qu'on peut résoudre le problème de 2 manières :
+
+- on peut aligner les 2 chaînes « à gauche » et procéder sans le sens de la lecture;
+- on peut aussi les aligner « à droite » et procéder de droite à gauche.
+
+Enfin, il n'y a pas toujours *unicité* de la solution, comme le prouve l'exemple ci-dessous :
+
+```
+BEC            B-EC             BE-C
+BAC            BA-C             B-AC
+```
+
+Il y a au moins deux méthodes pour programmer cet algorithme :
+
+- Récursivement, comme on l'a fait pour le rendu de monnaie;
+- Itérativement, à l'aide d'une matrice.
+
+!!! danger "Programmation dynamique itérative de l'alignement de séquence"
+
+    [L'activité est ici.](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/4320-19387).

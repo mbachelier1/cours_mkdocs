@@ -1,52 +1,83 @@
-def aligne_naif(w1: str, w2: str) -> int:
-    # par la fin
+def aligne_naif_dg(w1: str, w2: str) -> int:
     if not w1 or not w2:
         return len(w1) or len(w2)
     if w1[-1] == w2[-1]:
-        return aligne_naif(w1[:-1], w2[:-1])
+        return aligne_naif_dg(w1[:-1], w2[:-1])
     else:
-        return 1 + min(aligne_naif(w1, w2[:-1]), aligne_naif(w1[:-1], w2))
+        return 1 + min(aligne_naif_dg(w1, w2[:-1]), aligne_naif_dg(w1[:-1], w2))
 
 
-# PAR LE DEBUT
+def aligne_dyn_dg(w1: str, w2: str) -> int:
+    if (w1, w2) in d:
+        return d[w1, w2]
+    if not w1 or not w2:
+        s = len(w1) or len(w2)
+    elif w1[-1] == w2[-1]:
+        s = aligne_dyn_dg(w1[:-1], w2[:-1])
+    else:
+        s = 1 + min(aligne_dyn_dg(w1, w2[:-1]), aligne_dyn_dg(w1[:-1], w2))
+    d[w1, w2] = s
+    return s
 
-def aligne_naif2(w1: str, w2: str) -> int:
+
+def aligne_naif_gd(w1: str, w2: str) -> int:
     # par le début
     if not w1 or not w2:
         return len(w1) or len(w2)
     if w1[0] == w2[0]:
-        return aligne_naif(w1[1:], w2[1:])
+        return aligne_naif_dg(w1[1:], w2[1:])
     else:
-        return 1 + min(aligne_naif2(w1, w2[1:]), aligne_naif2(w1[1:], w2))
+        return 1 + min(aligne_naif_gd(w1, w2[1:]), aligne_naif_gd(w1[1:], w2))
 
 
 d = dict()
-def aligne_rec_dyn(w1: str, w2: str) -> int:
+
+
+def aligne_dyn_liste_dg(w1: str, w2: str) -> tuple:
+    if (w1, w2) in d:
+        return d[w1, w2]
+    elif not w1 or not w2:
+        s = (len(w1) or len(w2), len(w1) * '-', len(w2) * '-')
+    elif w1[-1] == w2[-1]:
+        s0, s1, s2 = aligne_dyn_liste_dg(w1[:-1], w2[:-1])
+        s = (s0, s1 + w1[-1], s2 + w2[-1])
+    else:
+        s0, s1, s2, = aligne_dyn_liste_dg(w1, w2[:-1])
+        s3, s4, s5 = aligne_dyn_liste_dg(w1[:-1], w2)
+        if s0 <= s3:
+            s = (1 + s0, s1 + '-', s2 + w2[-1])
+        else:
+            s = (1 + s3, s4 + w1[0], s5 + '-')
+    d[w1, w2] = s
+    return s
+
+
+def aligne_dyn_gd(w1: str, w2: str) -> int:
     # par le début
     if (w1, w2) in d:
         return d[w1, w2]
     elif not w1 or not w2:
         s = len(w1) or len(w2)
     elif w1[0] == w2[0]:
-        s = aligne_rec_dyn(w1[1:], w2[1:])
+        s = aligne_dyn_gd(w1[1:], w2[1:])
     else:
-        s = 1 + min(aligne_rec_dyn(w1, w2[1:]), aligne_rec_dyn(w1[1:], w2))
+        s = 1 + min(aligne_dyn_gd(w1, w2[1:]), aligne_dyn_gd(w1[1:], w2))
     d[w1, w2] = s
     return s
 
 
-def aligne_rec_dyn_liste(w1: str, w2: str) -> tuple:
+def aligne_dyn_liste_gd(w1: str, w2: str) -> tuple:
     # par le début
     if (w1, w2) in d:
         return d[w1, w2]
     elif not w1 or not w2:
         s = (len(w1) or len(w2), len(w1) * '-', len(w2) * '-')
     elif w1[0] == w2[0]:
-        s0, s1, s2 = aligne_rec_dyn_liste(w1[1:], w2[1:])
+        s0, s1, s2 = aligne_dyn_liste_gd(w1[1:], w2[1:])
         s = (s0, w1[0] + s1, w2[0] + s2)
     else:
-        s0, s1, s2, = aligne_rec_dyn_liste(w1, w2[1:])
-        s3, s4, s5 = aligne_rec_dyn_liste(w1[1:], w2)
+        s0, s1, s2, = aligne_dyn_liste_gd(w1, w2[1:])
+        s3, s4, s5 = aligne_dyn_liste_gd(w1[1:], w2)
         if s0 <= s3:
             s = (1 + s0, '-' + s1, w2[0] + s2)
         else:
@@ -128,15 +159,26 @@ def aligner_dyn_affiche(x, y):
 
 X = "TTCACCAGAAAAGAACACGGTAGTTACGAGTCCAATATTGTTAAACCG"
 Y = "TTCACGAAAAAGTAACGGGCCGATCTCCAATAAGTGCGACCGAG"
+d = dict()
+print(aligner_dyn_affiche(X,Y))
+d = dict()
+print(aligne_dyn_liste_dg(X,Y))
+d = dict()
+n,s1,s2 = aligne_dyn_liste_gd(X,Y)
+print(s1)
+print(s2)
 
+
+"""
 X = "AADBBDCDBACDCCDBACDBCABCDABCDABCDABCD"
 Y = "ACBDACBDACCDCDBABABDCABCBCDBDBDCABDCBDACBD"
-s,x,y = aligne_rec_dyn_liste(X, Y)
+s, x, y = aligne_dyn_liste_gd(X, Y)
 print(s)
 print(x)
 print(y)
 
-s,x,y = aligner_dyn_affiche(X, Y)
+s, x, y = aligner_dyn_affiche(X, Y)
 print(s)
 print(x)
 print(y)
+"""
