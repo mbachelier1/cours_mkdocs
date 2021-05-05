@@ -1,6 +1,7 @@
 site/
 .idea/
-_temp/
+_tmp/
 __pycache__/
 .bat
 .sh
+clean.py

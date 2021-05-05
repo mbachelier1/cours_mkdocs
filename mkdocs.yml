@@ -6,6 +6,7 @@ nav:
     -  'Infos' : 'nsi1/index.md'
     - 'Activité : initiation au shell linux' : 'nsi1/initiation_au_shell_linux/activite.md'
     - 'CH18 : Réseaux - principes' : 'nsi1/ch18/reseaux.md'
+    - 'CH19 : Réseau local' : 'nsi1/ch19/reseau_local.md'
   - 'NSI2':
     - 'Infos' : 'nsi2/index.md'
     - 'CH24 : diviser pour régner' : 'nsi2/ch24/diviser_pour_regner.md'
