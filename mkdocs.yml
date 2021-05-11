@@ -11,6 +11,7 @@ nav:
     - 'Infos' : 'nsi2/index.md'
     - 'CH24 : diviser pour régner' : 'nsi2/ch24/diviser_pour_regner.md'
     - 'CH25 : programmation dynamique' : 'nsi2/ch25/programmation_dynamique.md'
+    - 'CH26 : recherche textuelle' : 'nsi2/ch26/recherche_textuelle.md'
 theme:
   name: material
   font: false
