@@ -32,52 +32,44 @@ On pourrait alors penser à
 Malheureusement, cet algorithme souffre des mêmes faiblesses que son prédécesseur comme le montre l'exemple suivant :
 ```
 PATATE
-   ^
+   =
 RATA        les deux lettres sont égales, on continue à comparer
-   ^
 
 PATATE
-  ^
+  =
 RATA
-  ^
 
 PATATE
- ^
+ =
 RATA
- ^
 
 PATATE
-^
+≠
 RATA        les deux lettres diffèrent, on décale vers la droite
-^
 
 PATATE
-    ^
- RATA       idem
-    ^     
+    ≠
+ RATA       idem    
 
 PATATE
-     ^
-  RATA
-     ^      terminé : RATA n'est pas dans PATATE
+     ≠
+  RATA      terminé : RATA n'est pas dans PATATE
 ``` 
 
 Mais tout n'est pas perdu car on peut améliorer l'algorithme :
 ```
 FABRIQUER
-  ^
+  ≠
 POT         les lettres diffèrent et il n'y a pas de B dans POT donc on peut
-  ^         continuer en décalant POT de 3 lettres !
-
+            continuer en décalant POT de 3 lettres !
 FABRIQUER
-     ^
+     ≠
    POT      idem
-     ^
 
 FABRIQUER
-        ^
+        ≠
       POT
-        ^   terminé ! 
+            terminé ! 
 ```
 
 Comme on peut le constater, seules 3 comparaisons ont été nécessaires pour conclure. Avec l'algorithme
@@ -86,32 +78,151 @@ et que ceux-ci sont différent mais que le caractère du texte apparaît quand m
 
 Regardons l'exemple suivant :
 ```
-ANTICONSTITUTIONNELLEMENT
-      ^                     les 2 lettres diffèrent mais O apparait dans CONIQUE,
-CONIQUE                     plus précisement 5 caractères à gauche du E
-      ^                     donc on aligne les deux O 
-ANTICONSTITUTIONNELLEMENT
-          ^
-    CONIQUE                 T n'est pas dans CONIQUE
-          ^
-
+ANTICONSTITUTIONNELLEMENT   On commence ainsi
+      ^
+CONIQUE
+      
+ANTICONSTITUTIONNELLEMENT   Les 2 lettres diffèrent mais N apparait dans CONIQUE
+      ≠                     donc on aligne les N
+CONIQUE
+      
+ANTICONSTITUTIONNELLEMENT   
+          ^                 
+    CONIQUE
+          
+ANTICONSTITUTIONNELLEMENT   Mais à ce moment là les 2 lettres diffèrent et T n'appparaît
+          ≠
+    CONIQUE                 pas dans CONIQUE donc on peut décaler de 7 lettres
+          
 ANTICONSTITUTIONNELLEMENT
                  ^
-           CONIQUE          les 2 lettres sont égales, on continue à comparer
-                 ^
+           CONIQUE
+                 
+ANTICONSTITUTIONNELLEMENT   Les 2 coïncident
+                 =
+           CONIQUE
+                 
+ANTICONSTITUTIONNELLEMENT   Mais
+                ≠
+           CONIQUE
+                
 ANTICONSTITUTIONNELLEMENT
-                ^
-           CONIQUE          les 2 lettres diffèrent mais N apparait dans CONIQUE
-                ^           4 lettres à gauche de E donc on aligne les N
-
+                        ^
+                  CONIQUE
+                        ^
 ANTICONSTITUTIONNELLEMENT
-                    ^
-              CONIQUE       on continue à comparer
-                    ^ 
-
-ANTICONSTITUTIONNELLEMENT
-                   ^        les lettres diffèrent et il n'y a pas de L dans conique
-              CONIQUE       mais en décalant, on dépasse la fin du texte
+                        ≠
+                  CONIQUE
+                        ≠
 ```
-PRACAC
-   CAC
+
+La méthode que l'on vient d'appliquer est l'algorithme de [Boyer-Moore-Horspool](https://fr.wikipedia.org/wiki/Algorithme_de_Boyer-Moore-Horspool).
+
+## L'algorithme de Boyer-Moore-Horspool
+
+Ce qu'il faut retenir c'est que
+
+- Il y a d'abord pré-traitement du motif à rechercher pour établir une *table de sauts*.
+- On compare le motif avec le texte en commençant par le dernier caractère du motif.
+- Tant que les caractères coïncident on compare les caractères précédents (et éventuellement on trouve le motif).
+- Dès que les caractères ne coïncident pas, on utilise la table de saut avec le caractère du texte aligné avec le dernier caractère du motif.
+
+### Exemple
+
+On considère la chaîne de caractères JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE.
+
+On voudrait savoir si le motif TROUVER figure dans cette chaîne.
+
+#### Pré-traitement du motif
+
+
+Commençons par établir la table de saut du motif. C'est simple : 
+
+- on parcourt le motif caractère par caractère jusqu'à l'avant dernier;
+- à chaque fois on note le nombre de caractères qui le sépare du dernier;
+- si un caractère apparaît plusieurs fois, c'est la dernière qui prime;
+- le nombre que l'on obtient est l'amplitude du décalage à faire subir au motif lorsque son dernier caractère est
+aligné avec le caractère courant;
+- toutes les autres lettres n'apparaissent pas dans le motif (ou alors à la fin du motif et seulement à la fin) et donc
+on peut leur associer une saut d'amplitude la longueur du motif.
+
+| caractère | amplitude du saut |  
+|:--------: |:----------------: |
+| T 	    |  6 	            | 
+|  R  	    |  5  	            |  
+|   O       |  4  	            | 
+|   U  	    |  3  	            | 
+|   V       |  2  	            | 
+|   E       |  1              	| 
+| autre     |  7             	| 
+
+
+#### Parcours du texte
+
+```
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    On commence ainsi
+      ^
+TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes
+      ≠
+TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Pour un I on décale de 7
+             ^
+       TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes
+             ≠
+       TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Pour un E on décale de 1
+              ^
+        TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes
+              ≠
+        TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Pour un N on décale de 7
+                     ^
+               TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes
+                     ≠
+               TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Pour un O on décale de 4
+                         ^
+                   TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres égales, on continue à comparer
+                         =                  en allant de droite à gauche
+                   TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes
+                        ≠
+                   TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Pour un R on décale de 5
+                              ^
+                        TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes
+                              ≠
+                        TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Pour un A on décale de 7
+                                     ^
+                               TROUVER
+
+JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes, on devrait décaler mais on dépasserait 
+                                     ≠      donc c'est terminé
+                               TROUVER
+```
+
+L'algorithme a nécéssité 8 comparaisons, on se doute qu'il en aurait fallu bien plus avec l'algorithme naïf.
+
+!!! danger "Programmation de l'algorithe de Boyer-Moore-Horspool"
+
+    [L'activité est ici.](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/).
