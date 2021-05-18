@@ -223,6 +223,6 @@ JENESAISVRAIMENTPASQUOIECRIREDANSCETEXTE    Lettres différentes, on devrait dé
 
 L'algorithme a nécéssité 8 comparaisons, on se doute qu'il en aurait fallu bien plus avec l'algorithme naïf.
 
-!!! danger "Programmation de l'algorithe de Boyer-Moore-Horspool"
+!!! danger "Programmation de l'algorithme de Boyer-Moore-Horspool"
 
-    [L'activité est ici.](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/).
+    [L'activité est ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/ced3-24032).
