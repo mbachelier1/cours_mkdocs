@@ -20,10 +20,10 @@ Le troisième élément de la communication sont les [routeurs](../../../../nsi1
 
 Voici un schéma qui montre la *topologie* d'un réseau, c'est à dire son architecture :
 
-![topo1](../img/topo1.svg){width=75%}
+![topo1](../img/topo1.svg){width=100%}
 
 
-!!! note "Explications sur les paires (sous-réseau/masque)"
+??? note "Explications sur les paires (sous-réseau/masque)"
 
     Une *paire (sous-réseau/masque)* est composée
     
@@ -41,7 +41,9 @@ Voici un schéma qui montre la *topologie* d'un réseau, c'est à dire son archi
     - 192.168.1.x : l'IP des machines du réseaux, avec $1\leqslant x\leqslant 254$ (soit 254 machines au total;
     - 192.168.1.255 : l'IP du réseau dédiée à la diffusion en masse (*broadcast*).
  
- Le réseau comprenant R1 et R3 a pour adresse 10.0.1.0/30 : il ne reste donc que 2 bits libres pour adresser les machines.
+ Le réseau comprenant R1 et R3 a pour adresse 10.0.1.0/30 : il ne reste donc que 2 bits libres pour adresser les 
+ machines, soit 4 possibilités.
+
  Si on enlève l'adresse réseau 10.0.1.0 et l'adresse *broadcast* 10.0.1.3 il reste 2 IP, une pour chaque routeur.
  Ajoutons que R1 possède aussi une IP dans le réseau local du client et réalise ainsi une *passerelle*.
  
@@ -59,7 +61,7 @@ Voici un schéma qui montre la *topologie* d'un réseau, c'est à dire son archi
  
 ## Le protocole RIP
  
-!!! note "Principe"
+??? note "Principe"
 
     À intervalles de temps régulieur, chaque routeur envoie à ses voisins 
     
@@ -71,67 +73,92 @@ Voici un schéma qui montre la *topologie* d'un réseau, c'est à dire son archi
     
     Lorsqu'un routeur reçoit les informations d'un routeur voisin, 4 cas peuvent survenir :
     
-    1. dodod
-    2. erofi
-    3. zefiezio
-    4. eoiefoi
+    1. Une route vers un nouveau sous-réseau lui est présentée : il l'ajoute à sa table de routage.
+    2. Une route vers un sous-réseau déjà connue lui est présentée, mais plus courte que la précédente. Dans
+        ce cas l'ancienne est remplacée par celle-ci.
+    3. Une nouvelle route plus longue lui est transmise : il l'ignore. 
+    4. Une route existante, passant par le même voisin, mais plus longue que celle de la table de routage lui est
+        présentée. Cela veut dire qu'un problème est survenu sur l'ancienne route. Celle-ci est donc effacée et remplacée 
+        par la plus longue.
 
 
-Et voilà !
+Pour éviter les boucles, les distances doivent être au maximum de 15 (sinon elles sont ignorées). 
+RIP fonctionne donc sur des réseaux de taille modeste.
 
+### Étape 1 : initialisation
+
+Reprenons le réseau précédent et intéressons-nous uniquement aux routeurs R1 et R3.
+
+Au début de la mise en service du réseau voici la table de routage de R1 :
  
 |   destination  	| passerelle 	| interface 	| distance 	|
 |:--------------:	|:----------:	|:---------:	|:----------:	|
 |   10.0.1.0/30     |            	|    eth0   	| 1        	|
 | 192.168.1.0/24 	|            	| wlan0     	| 1        	|
 
+Elle indique que le sous-réseau local 192.168.1.0/24 est immédiatement accessible *via* l'interface *WiFi* wlan0 depuis
+ce propre routeur R1. Elle est donc à distance 1 de R1. De même l'autre sous-réseau est accessible *via* un port *Ethernet*
+du routeur nommé eth0 et est également à distance 1 de R1.
+
+Voici celle de R3 :
 
 |   destination  	| passerelle 	| interface 	| distance 	|
 |:--------------:	|:----------:	|:---------:	|:----------:	|
-|   10.0.1.0/30     |            	|    eth1    	| 1        	|
-|   10.0.2.0/30     |            	|    eth3    	| 1        	|
-|   10.0.3.0/30     |            	|    eth1    	| 1        	|
-|   10.0.4.0/30     |            	|    eth0    	| 1        	|
+|   10.1.1.0/30     |            	|    eth1    	| 1        	|
+|   10.1.2.0/30     |            	|    eth2    	| 1        	|
+|   10.1.3.0/30     |            	|    eth3    	| 1        	|
+|   10.1.4.0/30     |            	|    eth0    	| 1        	|
 
----
+C'est la même chose : R3 est initialisé avec ses voisins directs. Notez que les noms des interfaces sont relatifs à R3, 
+c'est pourquoi, par exemple, R1 et R3 sont reliés par *Ethernet* sur le port eth0 de R1 et eth1 de R2. Ces ports peuvent
+avoir le même nom ou pas, peu importe car ces noms n'existent que relativement au routeur concerné.
 
-|   destination  	| passerelle 	| interface 	| distance 	|
-|:--------------:	|:----------:	|:---------:	|:----------:	|
-|   10.0.1.0/30     |            	|    eth0   	| 1        	|
-| 192.168.1.0/24 	|            	| wlan0     	| 1        	|
-|   10.0.2.0/30     |    10.0.1.2       	|    eth0  	| 2        	|
-|   10.0.3.0/30     |    10.0.1.2        	|    eth0    	| 2        	|
-|   10.0.4.0/30     |    10.0.1.2        	|    eth0    	| 2        	|
+### Étape 2 : première itération de RIP
 
-|   destination  	| passerelle 	| interface 	| distance 	|
-|:--------------:	|:----------:	|:---------:	|:----------:	|
-|   10.0.1.0/30     |            	|    eth1    	| 1        	|
-|   10.0.2.0/30     |            	|    eth3    	| 1        	|
-|   10.0.3.0/30     |            	|    eth1    	| 1        	|
-|   10.0.4.0/30     |            	|    eth0    	| 1        	|
-|   10.0.7.0/30     |  10.0.4.2     |    eth0    	| 2       	|
-
----
-
+Chaque routeur envoie ses informations à ses voisins. La table de R1 devient
 
 |   destination  	| passerelle 	| interface 	| distance 	|
 |:--------------:	|:----------:	|:---------:	|:----------:	|
 |   10.0.1.0/30     |            	|    eth0   	| 1        	|
 | 192.168.1.0/24 	|            	| wlan0     	| 1        	|
-|   10.0.2.0/30     |    10.0.1.2       	|    eth0  	| 2        	|
-|   10.0.3.0/30     |    10.0.1.2        	|    eth0    	| 2        	|
-|   10.0.4.0/30     |    10.0.1.2        	|    eth0    	| 2        	|
+|   10.0.2.0/30     |    10.1.1.2       	|    eth0  	| 2        	|
+|   10.0.3.0/30     |    10.1.1.2        	|    eth0    	| 2        	|
+|   10.0.4.0/30     |    10.1.1.2        	|    eth0    	| 2        	|
+
+Ainsi R1 sait qu'il peut atteindre les machines du sous-réseau 10.1.2.0/30 *via* la passerelle 10.1.1.2 (IP de R2) sur
+le sous-réseau 10.1.1.0/30 sur lequel R1 et R2 figurent. L'interface est eth0 et la distance est 2.
 
 
+Voici la table de R3 :
 
 |   destination  	| passerelle 	| interface 	| distance 	|
 |:--------------:	|:----------:	|:---------:	|:----------:	|
-|   10.0.1.0/30     |            	|    eth1    	| 1        	|
-|   10.0.2.0/30     |            	|    eth3    	| 1        	|
-|   10.0.3.0/30     |            	|    eth1    	| 1        	|
-|   10.0.4.0/30     |            	|    eth0    	| 1        	|
-|   10.0.7.0/30     |  10.0.4.2     |    eth0    	| 2       	|
+|   10.1.1.0/30     |            	|    eth1    	| 1        	|
+|   192.168.1.0/24  |  10.1.1.1     |    eth1    	| 2       	|
+|   10.1.2.0/30     |            	|    eth2    	| 1        	|
+|   10.1.3.0/30     |            	|    eth3    	| 1        	|
+|   10.1.4.0/30     |            	|    eth0    	| 1        	|
+|   10.1.7.0/30     |  10.1.4.2     |    eth0    	| 2       	|
+
+    
+### Étape 3 : convergence après quelques itérations
+
+Dans notre cas, après 2 autres itérations, les informations se stabilisent, on dit qu'il y a *convergence* et chaque 
+routeur connaît le chemin à emprunter pour accéder à n'importe quel sous-réseau.
+
+En particulier la table de R1 est la suivante :
+
+|   destination  	| passerelle 	| interface 	| distance 	|
+|:--------------:	|:----------:	|:---------:	|:----------:	|
+|   10.0.1.0/30     |            	|    eth0   	| 1        	|
+| 192.168.1.0/24 	|            	| wlan0     	| 1        	|
+|   10.0.2.0/30     |    10.1.1.2       	|    eth0  	| 2        	|
+|   10.0.3.0/30     |    10.1.1.2        	|    eth0    	| 2        	|
+|   10.0.7.0/30     |    10.1.1.2        	|    eth0    	| 3        	|
+|   192.162.6.0/30     |    10.1.1.2        	|    eth0    	| 4        	|
 
 
 ## Le protocole OSPF
+
+à venir
  
