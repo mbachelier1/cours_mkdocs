@@ -12,7 +12,7 @@ class IP:
             value //= 2 ** 8
         return '.'.join(result)
 
-    def __init__(self, value):
+    def __init__(self, value: object) -> object:
         """
         :param value: can be a str like '192.168.0.1' or an int
         """
@@ -43,13 +43,18 @@ class Network:
         self.broadcast_ip = IP(self.ip.num + 2 ** (32 - mask) - 1)
         self.reserved_ip = {'Network': self.ip, 'Broadcast': self.broadcast_ip}
 
-    def add_machine(self, ip, name: str):
+    def add_terminal(self, ip=None, name="generic terminal"):
         """
-
-        :param ip: Any(str,IP)
+        :param ip: Any(str,IP,NoneType)
         :param name: str
         :return: None
         """
+        if ip is None:
+            min_ip = max((self.reserved_ip[device] for device in self.reserved_ip if device!='Broadcast'), key=lambda x: x.num)
+            if min_ip == self.broadcast_ip:
+                raise ConnectionError(f'{str(self)} is full.')
+            else:
+                ip = IP(min_ip.num + 1)
         if not isinstance(ip, IP):
             ip = IP(ip)
         if ip.num & self.bin_mask != self.ip.num:
@@ -59,17 +64,47 @@ class Network:
                 raise ValueError(f'{ip} already attributed to {rip}.')
         else:
             self.reserved_ip[name] = ip
-        print(self.reserved_ip)
+
+
 
     def __repr__(self):
+        return f'{self.ip} / {self.mask}\n'
+
+    def describe(self):
         result = f'{self.ip} / {self.mask}\n'
         for name in self.reserved_ip:
-            if name not in ('Network','Broadcast'):
+            if name not in ('Network', 'Broadcast'):
                 result += f'\t{self.reserved_ip[name]} : {name}\n'
         return result
 
 
+class Interface:
+    def __init__(self, network1: Network, router1_ip: IP, router1_port: int, network2: Network, router2_ip: IP,
+                 router2_port: int, speed=None):
+        self.network1 = network1
+        self.router1_ip = router1_ip
+        self.router1_port = router1_port
+        self.network2 = network2
+        self.router2_ip = router2_ip
+        self.router2_port = router2_port
+        self.speed = speed
+
+
+class Router:
+    def __init__(self, name: str):
+        self.name = name
+        self.interface = []
+        self.routing_table = []
+
+    def __repr__(self):
+        result = f"{self.name}\n"
+        for c in self.interface:
+            result += "\t" + str(c) + "\n"
+        return result
+
+
 n = Network('100.16.0.0', 13)
-n.add_machine(IP('100.16.0.1'), 'PC1')
-n.add_machine(IP('100.16.0.2'), 'PC2')
+n.add_terminal(name='PC1')
+n.add_terminal(name='PC2')
 print(n)
+print(n.describe())
