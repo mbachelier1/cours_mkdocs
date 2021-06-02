@@ -242,6 +242,10 @@ Dans les deux cas on arrive à une contradiction. Ainsi notre supposition est er
 La fonction A n'existe pas. Autrement dit il n'existe pas de programme permettant de déterminer systématiquement
 si un programme donné s'arrête ou non. Le problème de l'arrêt est *indécidable*.
 
+Ce problème est assez abstrait, il existe des problèmes plus concrets qui sont pourtants indécidables, tel le 
+[problème de correspondance de Post](https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_correspondance_de_Post) ou le problème 
+de pavage du plan avec un nombre fini de forme polygonales donné.
+
 ## Des nombres incalculables ?
 
 Il est facile de montrer que la majorité des nombres réels sont incalculables, mais pour autant, il a fallu attendre 

@@ -1,5 +1,6 @@
 # NSI2 - Informations
 
+- 02/06/2021 : Le chapitre 28 a été mis à jour.
 - 19/05/2021 : Le chapitre 27 est en préparation.
 - 18/05/2021 : Le chapitre 26 a été mis à jour.
 - 04/05/2021 : Le chapitre 25 a été mis à jour.
