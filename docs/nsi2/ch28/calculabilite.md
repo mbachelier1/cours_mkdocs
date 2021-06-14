@@ -261,4 +261,4 @@ philosophiques. Pour démontrer des théorèmes, les mathématiciens doivent uti
 pour lesquelles il n'existe ni de preuve qu'elles sont vraies, ni de preuve qu'elles sont fausses.
 
 Ce résultat est à mettre en parallèle avec les notions précédentes même s'il n'est pas de même nature : il dépend du
-système formel dans lequel on se place, au contraire de la décidabilité et la calculabilité.
+système formel dans lequel on se place, au contraire de la décidabilité et la calculabilité...
