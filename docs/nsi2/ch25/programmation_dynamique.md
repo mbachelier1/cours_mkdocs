@@ -26,7 +26,7 @@ penser !
 Notre stratégie, de type « diviser pour régner », décompose le calcul de `fibo(n)` en 2 calculs plus simples, mais *ces
 problèmes ne sont pas indépendants* , comme l'illustre le graphe suivant, obtenu à partir du schéma précédent.
 
-![fibo_5](../img/fibo_5_graphe.svg){width=40%}
+![fibo_5](img/fibo_5_graphe.svg){width=40%}
 
 ## La mémoïsation
 
@@ -132,7 +132,7 @@ Alors :
       
 On peut illustrer cette méthode pour rendre 7 livres dans l'ancien système monétaire Anglais :
 
-![rendu](../img/graphe_rendu.svg){width=75%}
+![rendu](img/graphe_rendu.svg){width=75%}
 
 On se rend compte que 2 pieces suffisent pour rendre la monnaie mais on voit aussi que $R(4)$ est calculé 2 fois, ainsi 
 que $R(3)$, *et caetera* : les sous-problèmes sont loins d'être indépendants, la programmation dynamique va nous aider !
@@ -153,7 +153,7 @@ On aimerait mettre ces deux chaînes de caractères en correspondance de la mani
 
 Voici ce que cela donne :
 
-![enorme](../img/enorme.gif){width=50%}
+![enorme](img/enorme.gif){width=50%}
 
 
 Dans cette situation on a besoin de 9 tirets, pas moins.
@@ -161,7 +161,7 @@ Dans cette situation on a besoin de 9 tirets, pas moins.
 L'objectif est d'aligner le **maximum** de lettres (donc de mettre le moins de `-` possible).
 Ce n'est pas un problème simple, surtout quand les chaînes sont longues :
 
-![adn](../img/adn.gif)
+![adn](img/adn.gif)
 
 Ici pas moins de 26 tirets sont nécessaires.
 
@@ -170,13 +170,13 @@ communes à deux séquences d'ADN.
 
 Encore une fois, on décompose un problème en sous-problèmes non-indépendants, comme le montre l'exemple suivant, qui nécéssite 4 tirets : 
 
-![adn](../img/basse.gif)
+![adn](img/basse.gif)
 
 
 
 Et dont le graphe de résolution est le suivant :
 
-![adn](../img/align-graphe.svg)
+![adn](img/align-graphe.svg)
 
 !!! question "Exercice"
 

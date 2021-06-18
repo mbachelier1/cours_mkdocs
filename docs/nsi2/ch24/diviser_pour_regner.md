@@ -128,14 +128,14 @@ nécessaires est de l'ordre de $10^{12}$.
 
 On suppose qu'on dispose d'une image carrée de côté $n$ pixels, où $n$ est une puissance de 2.
 
-<center><img src="../img/turing.png" width="50%"></center>
+<center><img src="img/turing.png" width="50%"></center>
 
 Pour l'exemple voic une photo (colorisée) carrée d'[Alan Turing](https://fr.wikipedia.org/wiki/Alan_Turing){width 50%} de côté 512 pixels.
 
 On aimerait faire subir un quart de tour à cette photo (dans le sens antihoraire) en utilisant une stratégie de type 
 «diviser pour régner». On va procéder ainsi :
 
-![rotation_principe](../img/rotation_principe.svg){width=50% align=right}
+![rotation_principe](img/rotation_principe.svg){width=50% align=right}
 
 1. On partage l'image en 4 carrés de côté deux fois moindre.
 2. On fait tourner ces 4 carrés.
@@ -147,7 +147,7 @@ faire quoi que soit).
 
 Voici ce que cela donne
 
-<center><img src="../img/turing.gif" width="50%"></center>
+<center><img src="img/turing.gif" width="50%"></center>
 
 !!! danger "Programmation de la rotation d'un quart de tour d'une image carrée"
      [On peut la retrouver ici](https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/ad82-15702).

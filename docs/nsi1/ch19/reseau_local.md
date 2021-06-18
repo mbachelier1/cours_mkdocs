@@ -1,6 +1,6 @@
 # Le réseau local
 
-![resloc](../img/reseau_local.svg){align=right width=50%} Un *réseau local*, ou LAN (*Local Area Network*) est de taille modeste.
+![resloc](img/reseau_local.svg){align=right width=50%} Un *réseau local*, ou LAN (*Local Area Network*) est de taille modeste.
 Les équipements qui y sont connectés s'envoient des données entre eux sans passer par internet. Un bon exemple de LAN
 est le *réseau domestique* d'une maison :
 
@@ -84,7 +84,7 @@ de 256 machines à connecter donc on va choisir une IP publique de classe C :
 
 !!! note  "Remarque"
 
-    ![ipc](../img/ipconfig.png){align=left width=60%}
+    ![ipc](img/ipconfig.png){align=left width=60%}
     Prenons le cas d'un foyer qui utilise le FAI Orange. Par défaut le réseau local est 192.168.1.0. avec pour masque
     255.255.255.0. 
     
@@ -115,4 +115,4 @@ Nous utiliserons Filius pour observer ce que nous avons appris des réseaux.
 
 !!! danger "Activité"
 
-    [L'activité sur Filius se trouve ici](../pdf/tp_filius.pdf){target='_blank'}
+    [L'activité sur Filius se trouve ici](pdf/tp_filius.pdf){target='_blank'}

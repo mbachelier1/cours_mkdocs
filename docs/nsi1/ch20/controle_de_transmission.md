@@ -7,7 +7,7 @@ Nous allons ici voir un modèle de *contrôle de perte de données* appelé *pro
 Ce protocole a (ou plutôt avait car il a été remplacé par un protocole plus performant) lieu au sein de la couche 2 
 (couche lien) et permet de vérifier que les trames d'un ordinateur A sont bien reçues par un ordinateur B.
 
-![bit1](../img/bit_alterne_1.svg){align="right"}
+![bit1](img/bit_alterne_1.svg){align="right"}
 
 Le principe est très simple, il utilise les *acquittements* et les *flags* :  lorsque A envoie une trame, il attend un
 accusé de réception (acquittement, *acknowledgment* en Anglais) de la part de B dans un temps imparti. À ceci s'ajoute 
@@ -28,14 +28,14 @@ Ce protocole permet d'éviter la perte de trames dans les cas suivants :
 
 A envoie la première trame et celle-ci se perd, au bout du temps imparti, ne reçoit rien.
 
-![bit2](../img/bit_alterne_2.svg) 
+![bit2](img/bit_alterne_2.svg) 
 
 C'est ce qu'on appelle un *timeout* en Anglais.
 A renvoie donc sa trame comme si de rien n'était.
 
 ### Perte de trame du côté de B
 
-![bit3](../img/bit_alterne_3.svg)
+![bit3](img/bit_alterne_3.svg)
 
 A envoie la première trame et celle-ci arrive à B, qui renvoie un ACK avec un *flag* à 1, et s'attend donc à recevoir 
 une prochaine trame avec un *flag* à 1. Cette trame ACK se perd. Donc du point de vue de A, il y a *timeout* et il 
@@ -49,7 +49,7 @@ Ce protocole présente des insuffisances comme le montre l'exercice suivant
     
     Analyse le schéma suivant et explique pourquoi il y a perte d'information.
 
-    ![bit4](../img/bit_alterne_4.svg)
+    ![bit4](img/bit_alterne_4.svg)
 
 
 ## Déroulement d'une communication TCP
@@ -67,19 +67,19 @@ L'exercice suivant va nous permettre d'examiner une exemple de communication TCP
 
     Reprendre le fichier Filius de l'exercice 5 (serveur web avec DNS ) de la feuille de TP sur Filius.
 
-    Tu peux aussi le télécharger [ici](../ex5.fls).
+    Tu peux aussi le télécharger [ici](ex5.fls).
 
 	- En mode simulation, faire un clic droit sur 192.168.2.1 et afficher les échanges de données. 
 	- Normalement il n'y a encore eu aucune communication réseau donc la fenêtre d'échange est vide.
     Sur le navigateur web installé sur 192.168.2.1, entrer `monsite.com` et observer la fenêtre d'échange de données
     *du point de vue de 192.168.2.1* :
 
-    ![ech](../img/echange_donnees.png)
+    ![ech](img/echange_donnees.png)
 			
     On observe 29 trames. Il est possible de cliquer sur chacune d'entre elles pour visualiser son contenu. Voici le 
     contenu de la première : 
 
-    ![trame1](../img/trame_1.png)
+    ![trame1](img/trame_1.png)
 
     Il nous indique que 192.168.2.1 essaie de déterminer l'adresse MAC du routeur. En effet, 192.168.2.1 doit interroger 
     le serveur DNS, situé en 192.168.3.1, pour obtenir l'adresse IP associée à `monsite.com`, et puisque 192.168.3.1

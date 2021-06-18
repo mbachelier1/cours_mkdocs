@@ -41,7 +41,7 @@ on cherche à décomposer en étapes et les similitudes apparaissent :
 Les considérations précédentes sont très abstraites, nous allons donc envisager l'exemple d'une personne A qui souhaite 
 envoyer un cadeau à B. L'information est le cadeau en lui même, le réseau est le réseau postal :
 
-![5couchesposte](../img/modele_5_couches_poste.svg){width=50%}
+![5couchesposte](img/modele_5_couches_poste.svg){width=50%}
 
 On a décomposé la communication en 5 couches, auxquelles on a donné des noms *qui sont déjà liés au vocabulaire des 
 réseaux informatiques*. En voici le détail dans l'ordre chronologique:
@@ -90,7 +90,7 @@ On appelle *protocole* tout programme utilisé par une couche.
 
 ###Du point de vue de l'émetteur
 
-![modele5couches](../img/modele_5_couches_up.svg){align=right width=50%}
+![modele5couches](img/modele_5_couches_up.svg){align=right width=50%}
 Ce qu'il faut retenir c'est que lors de la transmission
 
 - très tôt dans le processus, le fichier est découpé en paquets; 
@@ -172,7 +172,7 @@ Ce qu'il faut retenir c'est que lors de la transmission
 ###Du point de vue du récepteur
 
 
-![utili](../img/modele_5_couches_down.svg){width=33%}
+![utili](img/modele_5_couches_down.svg){width=33%}
 ``
 Il faut retenir que chaque couche dépaquète le paquet (ou trame) qui lui est adressé en enlevant l'en-tête correspondant 
 et passe le relais à la couche du dessus.
@@ -183,7 +183,7 @@ et passe le relais à la couche du dessus.
 
 ??? note "Liaison filiaire"
     
-    ![eth](../img/cable_ethernet.png){align=right width=50%}
+    ![eth](img/cable_ethernet.png){align=right width=50%}
     Les informations peuvent être transmises *via* des câbles. Le plus utilisé est le câble Ethernet. Son nom est UTP-CAT5 
     ou UTP-CAT6, la différence étant que le second permet un débit dix fois plus grand que le premier ( 1 Gbit/s contre 100
     Mbit/s).
@@ -194,34 +194,34 @@ et passe le relais à la couche du dessus.
 
 ??? note "Bluetooth"
 
-    ![BT](../img/logo_bluetooth.png){width=5% align=left}
+    ![BT](img/logo_bluetooth.png){width=5% align=left}
     C'est une technologie utilisant les ondes radios pour permettre la communication entre les équipements électroniques 
     (imprimantes, téléphones, scanners, système audio portatif ou dans un véhicule...) à courte distance. Ses 
     fonctionnalités sont assez limitées en terme de mise en réseau.
 
 ??? note "Wi-Fi"
 
-    ![wifi](../img/logo_wifi.png){width=10% align=left}
+    ![wifi](img/logo_wifi.png){width=10% align=left}
     Cette technologie utilise également les ondes radio. Son nom de norme est IEEE 802.11 et c'est le moyen de transmission 
     des données sans fil le plus utilisé.
 
 ??? note "Répéteur"
 
-    ![rep](../img/repeteur.jpg){width=50% align=right}
+    ![rep](img/repeteur.jpg){width=50% align=right}
     Lorsqu'un signal parcourt le support physique, son intensité s'atténue avec la distance. Un *répéteur* régénère le 
     signal perçu avec plus d'intensité pour pallier ce problème.
 
 
 ??? note "Concentrateur"
 
-    ![hub](../img/hub.png){width=50%}
+    ![hub](img/hub.png){width=50%}
     Le **concentrateur** (*hub*) est moins utilisé de nos jours. C'est une version « multiprise » du répéteur : quand il reçoit 
     un signal sur un des ses branchements, il les recopie sur tous les autres branchements sans se soucier de l'éventuel 
     destinataire du signal.
 
 ??? note "Carte réseau"
 
-    ![rezo](../img/carte_reseau.jpg){width=50%}
+    ![rezo](img/carte_reseau.jpg){width=50%}
     Que ce soit une clé USB Wi-Fi ou une carte réseau interne, c'est la même chose : ce composant est indispensable pour 
     connecter un ordinateur à un réseau.
     
@@ -232,7 +232,7 @@ et passe le relais à la couche du dessus.
 
 ??? note "Commutateur"
 
-    ![switch](../img/switch.jpg){align=left width=50%}
+    ![switch](img/switch.jpg){align=left width=50%}
     Le **commutateur** (*switch* en Anglais) est un équipement à plusieurs branchements (au moins 2) appelés *ports*
     (ne pas confondre avec la notion de port utilisé par une application).
 
@@ -242,7 +242,7 @@ et passe le relais à la couche du dessus.
 
 ??? note "Routeur"
 
-    ![router](../img/routeur.jpg){align=right width=50%}
+    ![router](img/routeur.jpg){align=right width=50%}
     Le **routeur** (*router* en Anglais) permet d'effectuer le routage des paquets et de les faire transiter d'une partie du 
     réseau vers une autre (par exemple d'un réseau local à un autre, nous verrons cela plus tard).
 
