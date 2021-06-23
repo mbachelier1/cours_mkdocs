@@ -1,20 +1,21 @@
 site_name: "NSI au lycée Rabelais de Saint Brieuc"
-
+site_url: ""
+use_directory_urls: false
 nav:
   - 'Accueil': 'index.md'
   - 'NSI1':
-    -  'Infos' : 'nsi1/index.md'
-    - 'Activité : initiation au shell linux' : 'nsi1/initiation_au_shell_linux/activite.md'
-    - 'CH18 : Réseaux - principes' : 'nsi1/ch18/reseaux.md'
-    - 'CH19 : Réseau local' : 'nsi1/ch19/reseau_local.md'
-    - 'CH20 : Contrôle de transmission' : 'nsi1/ch20/controle_de_transmission.md'
+      - 'Infos': 'nsi1/index.md'
+      - 'Activité : initiation au shell linux': 'nsi1/initiation_au_shell_linux/activite.md'
+      - 'CH18 : Réseaux - principes': 'nsi1/ch18/reseaux.md'
+      - 'CH19 : Réseau local': 'nsi1/ch19/reseau_local.md'
+      - 'CH20 : Contrôle de transmission': 'nsi1/ch20/controle_de_transmission.md'
   - 'NSI2':
-    - 'Infos' : 'nsi2/index.md'
-    - 'CH24 : diviser pour régner' : 'nsi2/ch24/diviser_pour_regner.md'
-    - 'CH25 : programmation dynamique' : 'nsi2/ch25/programmation_dynamique.md'
-    - 'CH26 : recherche textuelle' : 'nsi2/ch26/recherche_textuelle.md'
-    - 'CH27 : protocoles de routage' : 'nsi2/ch27/protocoles_de_routage.md'
-    - 'CH28 : calculabilité et décidabilité' : 'nsi2/ch28/calculabilite.md'
+      - 'Infos': 'nsi2/index.md'
+      - 'CH24 : diviser pour régner': 'nsi2/ch24/diviser_pour_regner.md'
+      - 'CH25 : programmation dynamique': 'nsi2/ch25/programmation_dynamique.md'
+      - 'CH26 : recherche textuelle': 'nsi2/ch26/recherche_textuelle.md'
+      - 'CH27 : protocoles de routage': 'nsi2/ch27/protocoles_de_routage.md'
+      - 'CH28 : calculabilité et décidabilité': 'nsi2/ch28/calculabilite.md'
 theme:
   name: material
   font: false
@@ -65,7 +66,7 @@ markdown_extensions:
       custom_checkbox: false
   - pymdownx.inlinehilite
   - pymdownx.superfences:
-     custom_fences:
+      custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
