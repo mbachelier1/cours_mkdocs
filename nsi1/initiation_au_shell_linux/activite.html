@@ -1,0 +1,1086 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Activité : initiation au shell linux - NSI au lycée Rabelais de Saint Brieuc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#initiation-au-shell-linux" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-header__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI au lycée Rabelais de Saint Brieuc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Activité : initiation au shell linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Mode sombre" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Mode clair" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        NSI1
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nsi2/index.html" class="md-tabs__link">
+        NSI2
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-nav__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    NSI au lycée Rabelais de Saint Brieuc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        NSI1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Activité : initiation au shell linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="activite.html" class="md-nav__link md-nav__link--active">
+        Activité : initiation au shell linux
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#petit-tutoriel" class="md-nav__link">
+    Petit tutoriel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch18/reseaux.html" class="md-nav__link">
+        CH18 : Réseaux - principes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch19/reseau_local.html" class="md-nav__link">
+        CH19 : Réseau local
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch20/controle_de_transmission.html" class="md-nav__link">
+        CH20 : Contrôle de transmission
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        NSI2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          NSI2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch24/diviser_pour_regner.html" class="md-nav__link">
+        CH24 : diviser pour régner
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch25/programmation_dynamique.html" class="md-nav__link">
+        CH25 : programmation dynamique
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch26/recherche_textuelle.html" class="md-nav__link">
+        CH26 : recherche textuelle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch27/protocoles_de_routage.html" class="md-nav__link">
+        CH27 : protocoles de routage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch28/calculabilite.html" class="md-nav__link">
+        CH28 : calculabilité et décidabilité
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="initiation-au-shell-linux">Initiation au shell Linux<a class="headerlink" href="#initiation-au-shell-linux" title="Permanent link">⚓︎</a></h1>
+<p>Cette activité est basée sur un travail original de <a href="http://people.irisa.fr/Martin.Quinson/">Martin Quinson</a></p>
+<h2 id="petit-tutoriel">Petit tutoriel<a class="headerlink" href="#petit-tutoriel" title="Permanent link">⚓︎</a></h2>
+<p>Comme les autres systèmes d'exploitation, Linux range les fichiers dans une
+arborescence de répertoires. Voici quelques commandes utiles. Tapez-les une à une pour constater le résultat.</p>
+<ul>
+<li><code>#!bashpwd</code> savoir où on est sur le disque (Print Working Directory)</li>
+<li>
+<h1 id="bashmkdir-machin-creer-un-nouveau-repertoire-nomme-machin">!bashmkdir machin` créer un nouveau répertoire nommé machin<a class="headerlink" href="#bashmkdir-machin-creer-un-nouveau-repertoire-nomme-machin" title="Permanent link">⚓︎</a></h1>
+</li>
+<li><code class="highlight">ls</code> lister les fichiers et répertoires du répertoire courant</li>
+<li><code class="highlight"><span class="nb">cd</span> machin</code> entrer dans le répertoire machin (Change Directory)</li>
+<li><code class="highlight"><span class="nb">pwd</span></code></li>
+<li><code class="highlight"><span class="nb">cd</span> ..</code> aller dans le répertoire "..", c'est-à-dire un étage plus haut</li>
+<li><code class="highlight"><span class="nb">pwd</span></code> </li>
+<li><code class="highlight">touch bidule</code> créer un fichier vide nommé bidule (ou change sa date d'accès si le fichier existe)</li>
+<li><code class="highlight">ls</code> </li>
+<li><code class="highlight">rm bidule</code> effacer le fichier bidule. Attention, c'est une opération irréversible.</li>
+<li><code class="highlight">ls</code> </li>
+<li><code class="highlight">rmdir machin</code> effacer le répertoire machin (il faut qu'il soit
+  vide). On peut aussi utiliser <code class="highlight">rm -r machin</code> pour effacer
+  récursivement <code>machin</code> et tout son contenu.</li>
+<li><code class="highlight">ls</code> </li>
+<li><code class="highlight">clear</code> permet d'effacer l'écran pour nettoyer.</li>
+</ul>
+<p>Au besoin, lisez la documentation de ces commandes avec par exemple
+<code class="highlight">man ls</code> (<span class="keys"><kbd class="key-q">Q</kbd></span> pour quiter cette aide).</p>
+<p>Sachez aussi que :</p>
+<ul>
+<li>les touches <span class="keys"><kbd class="key-arrow-up">Up</kbd></span>   et <span class="keys"><kbd class="key-arrow-down">Down</kbd></span> du clavier permettent de naviguer dans l'historique des commandes déjà tapées</li>
+<li>la touche <span class="keys"><kbd class="key-tab">Tab</kbd></span> (tabulation) permet de compléter un nom de fichier</li>
+</ul>
+<h2 id="1-creer-des-arborescences">1. Créer des arborescences<a class="headerlink" href="#1-creer-des-arborescences" title="Permanent link">⚓︎</a></h2>
+<p>Il s'agit maintenant de créer l'aborescence suivante.</p>
+<div class="highlight"><pre><span></span><code>📁 EXO
+├── 📁 dir1
+│    └── 📁 dir2
+│         └── 🖹 doc1
+└── 📁 dir3
+    └── 🖹 doc2
+</code></pre></div>
+<p>Les logos sont juste là pour l'explication, les noms de fichiers et
+répertoires ne doivent contenir que des lettres et des chiffres dans
+cet exercice. </p>
+<p>Le répertoire au sommet est l'endroit où commence
+l'exercice, noté <code>EXO</code>.</p>
+<p>Pour commencer l'exercice, dans le terminal, entrez <code class="highlight">bash 01_start</code></p>
+<p>Coincé? Utilisez la commande <code class="highlight">ls -R</code> pour afficher
+<em>récursivement</em> le contenu de tous les répertoires.</p>
+<p>Si c'est plus grave, tapez <code class="highlight"><span class="nb">cd</span></code> pour revenir au répertoire de départ et <code class="highlight">bash 01_start</code> pour tout recommencer.</p>
+<p>Lorsque vous avez terminé, tapez <code class="highlight">bash 01_verif</code> pour vérifier et passer à l'exercice suivant.</p>
+<h2 id="2-renommer-et-deplacer">2. Renommer et déplacer<a class="headerlink" href="#2-renommer-et-deplacer" title="Permanent link">⚓︎</a></h2>
+<p>Nous avons vu quelques commandes pour se déplacer sur le disque et
+pour créer des fichiers et répertoires. Pour ne pas les oublier,
+imprimez le <a href="https://framagit.org/mquinson/C-2nd-language/raw/master/refcard/refcard-shell.pdf?inline=false">pense-bête du shell</a>.</p>
+<p>Dans cet exercice, nous allons apprendre à déplacer des fichiers.</p>
+<h3 id="petit-tutoriel_1">Petit tutoriel<a class="headerlink" href="#petit-tutoriel_1" title="Permanent link">⚓︎</a></h3>
+<p>Pour commencer, dans le terminal, entrez <code class="highlight">bash 02_start</code></p>
+<p>Utilisez la commande <code class="highlight">tree</code> pour voir la situation
+initiale.</p>
+<p>La commande <code class="highlight">mv</code> permet de déplacer (MoVe) des fichiers et
+répertoires. Sa syntaxe est très facile : De base, 
+<code class="highlight">mv toto bidule</code> permet de renommer le fichier <code>toto</code> en <code>bidule</code>.
+Cela marche aussi si <code>toto</code> est un répertoire. Vérifiez le résultat
+avec la commande <code class="highlight">tree</code>.</p>
+<p>Si le second paramètre de la commande <code class="highlight">mv</code> existe, ça doit être un
+répertoire dans lequel le premier paramètre est déplacé. Par exemple
+<code class="highlight">mv bidule dir1</code> déplace le fichier <code>bidule</code> dans le
+répertoire <code>dir1</code>. Vérifiez l'état courant avec 
+<code class="highlight">tree</code> ou <code class="highlight">ls -R</code> (listing récursif).</p>
+<p>Enfin, si vous passez plus de deux paramètres à la commande <code class="highlight">mv</code>, tous
+ceux du début de la ligne sont déplacés dans le répertoire indiqué en
+dernier paramètre. Par exemple <code class="highlight">mv machin dir1/bidule truc</code> déplace les fichiers <code>machin</code> et <code>dir1/bidule</code>
+(c'est-à-dire le fichier <code>bidule</code> placé dans <code>dir1</code>) dans le
+répertoire <code>truc</code>. Vérifiez l'état actuel avec <code class="highlight">tree</code>.</p>
+<p>La commande <code class="highlight">mv</code>, comme beaucoup d'autres, accepte beaucoup de
+paramètres intéressants. Par exemple <code class="highlight">mv -i <span class="o">[</span>paramètres habituels<span class="o">]</span></code>
+passe en mode interactif : vous devez confirmer chaque opération qui écrase
+un fichier existant.
+Consultez le manuel de cette commande en tapant
+<code class="highlight">man mv</code>.</p>
+<h3 id="au-travail">Au travail<a class="headerlink" href="#au-travail" title="Permanent link">⚓︎</a></h3>
+<p>Si vous avez bien suivi le tutoriel, votre arborescence devrait être la suivante:
+<div class="highlight"><pre><span></span><code>📁 EXO
+├── 📁 dir1
+│    └── 📁 dir2
+│         └── 🖹 doc1
+└── 📁 dir3
+    └── 🖹 doc2
+</code></pre></div></p>
+<p>L'objectif est de renommer tous les éléments pour les mettre en
+majuscule, comme suit. Il n'est pas possible de juste recréer
+l'arborescence, car le contenu des fichiers doc1 et doc2 doit être
+préservé.</p>
+<div class="highlight"><pre><span></span><code>📁 EXO
+├── 📁 DIR1
+│    └── 📁 DIR2
+│         └── 🖹 DOC1
+└── 📁 DIR3
+    └── 🖹 DOC2
+</code></pre></div>
+<p>Coincé? Utilisez la commande <code>tree</code> pour afficher récursivement
+le contenu de tous les répertoires. </p>
+<p>Si c'est plus grave, tapez <code>cd</code> pour revenir au répertoire de départ et <code>bash 02_start</code> pour tout recommencer.</p>
+<p>Lorsque vous avez terminé, tapez <code>bash 02_verif</code> pour vérifier et passer à l'exercice suivant.</p>
+<h2 id="3-deplacer-en-masse">3. Déplacer en masse<a class="headerlink" href="#3-deplacer-en-masse" title="Permanent link">⚓︎</a></h2>
+<p>Bien. Vous avez compris comment déplacer des fichiers en shell. Mais
+avouez que c'est assez rébarbatif : on irait beaucoup plus vite à la
+souris avec un bon navigateur de fichiers. </p>
+<p>Alors, à quoi bon utiliser le shell ? Eh bien, parce que les
+opérations non triviales vont beaucoup plus vite à réaliser en shell !</p>
+<p>Dans le terminal, entrez <code>bash 03_start</code>.</p>
+<p>Affichez le contenu du répertoire <code>EXO</code>. C'est le bazar, non ?</p>
+<p>Heureusement pour vous, la commande <code>mv *.html web</code> va déplacer
+tous les fichiers dont le nom termine par <code>.html</code> dans le répertoire
+<code>web</code> (et seulement ceux-là). À la souris, il serait fastidieux de
+devoir les sélectionner les uns après les autres.</p>
+<p>Dans cet exercice, il vous est demandé de
+déplacer tous les fichiers <code>html</code> dans le répertoire <code>web</code>, les
+fichiers <code>pdf</code> dans le répertoire <code>print</code> (que vous devez créer) et
+les fichiers <code>png</code> dans le répertoire <code>image</code>. </p>
+<p>Avouez que pouvoir déplacer autant de fichiers en une seule commande
+est tout de même agréable, non ?</p>
+<p>Pour (re)commencer l'exercice, dans le terminal, entrez <code>bash 03_start</code>.</p>
+<p>Lorsque vous avez terminé, tapez <code>bash 03_verif</code> pour vérifier et passer à l'exercice suivant.</p>
+<h2 id="4-lire-le-contenu-des-fichiers">4. Lire le contenu des fichiers<a class="headerlink" href="#4-lire-le-contenu-des-fichiers" title="Permanent link">⚓︎</a></h2>
+<p>Commencez donc par un petit <code>bash 04_start</code>.</p>
+<p>Il existe de nombreuses commandes pour afficher le contenu des
+fichiers à l'écran. La plus simple est <code>cat fichier</code>,
+qui affiche le contenu du fichier sur la console. </p>
+<p>Si on affiche un fichier contenant non pas du texte mais du binaire,
+on peut avoir des résultats surprenants: 
+<code>cat fichier-binaire</code> affiche un fichier peu
+intelligible en l'état. Si votre terminal est ... dérangé après un tel
+affichage, il suffit de taper <code>reset</code> pour tout
+réinitialiser. </p>
+<p>Si le fichier est plus long, cette méthode permet assez facilement de
+voir la fin du contenu. C'est déjà ça. Par exemple, 
+<code>cat fichier_long</code> risque de vous remplir l'écran. Et
+si on demande à afficher un programme binaire, c'est long ET illisible
+à priori: <code>cat /bin/cat</code> affiche le programme cat
+lui-même. </p>
+<p>Si on veut voir le début d'un fichier, on peut utiliser la commande 
+<code>head fichier_long</code> qui n'affiche que les premières
+lignes du fichier passé. On peut aussi préciser que l'on veut les 50
+premières lignes avec l'option <code>-n</code>: <code>head -n 50 fichier_long</code></p>
+<p>De même, la commande <code>tail -n 10 fichier_long</code> permet
+d'afficher les 10 dernières lignes d'un fichier long.
+Enfin, la commande <code>less fichier_long</code> permet
+de se promener dans l'affichage d'un fichier : la navigation se fait avec
+les mêmes raccourcis que le manuel (le manuel appelle <code>less</code> en interne).
+Pour rappel : les flèches et page vers le haut/bas permettent de se déplacer
+dans le fichier, <span class="keys"><kbd class="key-q">Q</kbd></span> quitte le programme et on voit l'aide avec <span class="keys"><kbd class="key-h">H</kbd></span>.</p>
+<h3 id="but-de-lexercice">But de l'exercice<a class="headerlink" href="#but-de-lexercice" title="Permanent link">⚓︎</a></h3>
+<p>Pour passer à la suite, il suffit de trouver différents mots de passe,
+répartis dans différents fichiers du répertoire. </p>
+<p>Normalement <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> ne fonctionne pas dans le terminal et il faut
+sélectionner à la souris puis faire <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-insert">Ins</kbd></span> pour copier, et
+<span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-insert">Ins</kbd></span> pour coller. </p>
+<p><strong>Ceci dit, dans CoCalc, les développeurs ont eu la bonne idée d'autoriser également les bons vieux <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> pour copier et 
+<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span> pour coller, donc il ne faut pas vous en priver.</strong></p>
+<p>Bien entendu, il est presque impossible de taper la bonne commande,
+juste du premier coup. On pourrait la copier/coller depuis juste au
+dessus avec <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-insert">Ins</kbd></span> et <span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-insert">Ins</kbd></span>, mais ce serait affreusement
+lent et frustrant. Il y a bien mieux : on peut retrouver les commandes
+qu'on vient d'écrire simplement avec les flèches haut/bas et les
+modifier. </p>
+<p>En fait, le terminal est un truc de fainéants où tout est fait pour
+vous simplifier la vie, vous allez voir. Vous avez la flemme de
+chercher manuellement dans l'historique la ligne où vous utilisez
+<code>head</code>? Tapez simplement <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-r">R</kbd></span> pour passer en mode recherche, et
+écrivez <code>head</code>. Le shell va fouiller l'historique pour vous. Appuyez
+sur <code>Entrée</code> quand vous l'avez trouvé. Essayez aussi d'utiliser les
+flèches pendant/après la recherche ou de refaire <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-r">R</kbd></span> en cours de
+recherche: c'est assez bien fait. </p>
+<ol>
+<li>
+<p>Quel est le contenu du fichier <code>mot-de-passe</code> ?</p>
+</li>
+<li>
+<p>Quelle information se cache à la fin du fichier <code>cache-cache-passe</code> ?</p>
+</li>
+<li>
+<p>Quelle information se cache au début du fichier <code>cache-cache-passe</code> ?</p>
+</li>
+<li>
+<p>Quelle information se cache un peu après le début du fichier <code>cache-cache-passe</code> ?</p>
+</li>
+<li>
+<p>Quelle information se cache vers le milieu du fichier <code>cache-cache-passe</code> ?</p>
+</li>
+</ol>
+<p>Vous ne trouvez pas les informations ? Essayez avec les commandes
+<code>cat</code>, <code>head</code> et <code>less</code>.</p>
+<h2 id="5-trouver-des-fichiers">5. Trouver des fichiers<a class="headerlink" href="#5-trouver-des-fichiers" title="Permanent link">⚓︎</a></h2>
+<p>Vous avez l'habitude, maintenant : <code>bash 05_start</code>.</p>
+<p>Il arrive souvent qu'on ait besoin de retrouver un fichier sur son
+disque. Deux commandes sont bien pratiques en pareille situation.</p>
+<p>La commande <code>locate</code> <strong>qui n'est pas installée sur CoCalc</strong> utilise une base de données des fichiers sur
+disque et permet de retrouver très rapidement un fichier par son nom.
+Le défaut est qu'il faut que le fichier soit là depuis assez longtemps
+pour qu'il ait été indexé dans la base. Mais si vous cherchez un
+fichier dont vous connaissez une partie du nom sans savoir du tout où
+il se trouve, cette commande est faite pour vous. </p>
+<p>La commande <code>find</code> qui elle, en revanche, est installée sur CoCalc, permet de fouiller le disque de façon bien plus
+approfondie. Par exemple, la commande <code>find ddd -name "pas-la"</code>
+cherche dans le répertoire <code>ddd</code> un fichier dont le nom est "pas-la"
+(il y en a un, juste pour l'exemple).</p>
+<h3 id="but-de-lexercice_1">But de l'exercice<a class="headerlink" href="#but-de-lexercice_1" title="Permanent link">⚓︎</a></h3>
+<p>La commande <code>find</code> offre de nombreuses autres possibilités, que vous
+pourrez découvrir en lisant la documentation avec <code>man find</code>.
+Cela vous permettra de répondre aux questions suivantes.</p>
+<p>Comme précédemment, pas question de retaper la ligne de commande en
+entier à chaque tentative. Soyez fainéants. Utilisez l'historique des
+commandes.
+Les informaticiens sont de grands fainéants prêts à tout pour faire
+travailler l'ordinateur à leur place.</p>
+<h4 id="dans-aaa">Dans aaa<a class="headerlink" href="#dans-aaa" title="Permanent link">⚓︎</a></h4>
+<p>Un fichier nommé 'ici' se cache quelque part dans le répertoire 'aaa',
+mais la commande <code>tree</code> n'aide pas beaucoup. Il va
+falloir utiliser <code>find</code>!</p>
+<ol>
+<li>Que contient ce fichier 'ici'?</li>
+</ol>
+<h4 id="dans-bbb">Dans bbb<a class="headerlink" href="#dans-bbb" title="Permanent link">⚓︎</a></h4>
+<p>Cette fois, on ne connaît même pas le nom du fichier. On sait juste
+que c'est un fichier, et que le prédicat <code>-type</code> de <code>find</code> peut
+nous aider.</p>
+<p>Notez que pour chercher dans le manuel, il faut appuyer sur la touche
+<span class="keys"><kbd class="key-slash">/</kbd></span> après l'avoir ouvert avec <code>man find</code>. Tapez ensuite
+la chaîne à chercher (par exemple <code>-type</code>) et entrée. On saute à
+l'occurrence suivante avec <span class="keys"><kbd class="key-n">N</kbd></span> (précédente avec <span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-n">N</kbd></span>), et on quitte le
+manuel avec <span class="keys"><kbd class="key-q">Q</kbd></span>.</p>
+<h4 id="dans-ccc">Dans ccc<a class="headerlink" href="#dans-ccc" title="Permanent link">⚓︎</a></h4>
+<p>Il y a maintenant une multitude de fichiers, et on cherche celui dont
+la taille est supérieure à zéro. Les prédicats <code>-size</code> ou 
+<code>-empty</code> vont probablement nous rendre service, ainsi que les
+connecteurs logiques <code>-and</code>,<code>-or</code> ou <code>-not</code>, à vous de voir...</p>
+<ol>
+<li>Que contient le fichier caché dans 'ccc'?</li>
+</ol>
+<h4 id="dans-ddd">Dans ddd<a class="headerlink" href="#dans-ddd" title="Permanent link">⚓︎</a></h4>
+<p>Cette fois, il y a une multitude de fichiers, et il faut utiliser celui
+modifié plus récemment que le fichier <code>timestamp</code> placé à la racine de <code>EXO</code>.
+Notez que c'est bien la date de dernière modification qui compte.</p>
+<ol>
+<li>Que contient le fichier caché dans 'ddd'?</li>
+</ol>
+<h2 id="6-fouiller-des-fichiers">6. Fouiller des fichiers<a class="headerlink" href="#6-fouiller-des-fichiers" title="Permanent link">⚓︎</a></h2>
+<p>...</p>
+<p>La commande <code>find</code> est très pratique pour trouver un fichier
+d'après son nom ou ses attributs de fichier, mais elle ne permet pas
+d'ouvrir les fichiers à la recherche d'un contenu particulier. C'est
+l'un des multiples services que la commande <code>grep</code> peut rendre.</p>
+<p>Grep permet de chercher efficacement un texte donné dans des fichiers
+ou des flux de données.  Cet outil est installé sur tous les Unix de
+la terre, et il existe des versions pour Windows. Tout les
+utilisateurs du terminal utilisent grep de temps à autres.</p>
+<p>Allez, un petit <code>bash 06_start</code> pour la route...</p>
+<p>Voici un exemple : <code>grep xeruti aa/*</code> cherche la chaîne
+<code>xeruti</code> dans tous les fichiers du répertoire <code>aa/</code>. Chaque fois que
+cette chaîne est trouvée, grep écrit le nom du fichier où il l'a
+trouvé séparé par ':' de la ligne complète contenant la chaîne.</p>
+<p>Mais grep est bien plus puissant que cela. Il permet de chercher non
+seulement des mots, mais également des motifs avancés comme "un i
+suivi d'un nombre pair de t (ou bien d'un nombre impair de s), mais
+uniquement si c'est en début de ligne". En informatique, ces motifs
+s'appellent des expressions régulières (<em>regular expression</em> ou <em>regex</em>
+en anglais), et c'est d'ailleurs de là que vient le nom de grep:
+<em>Global Regular Expression Print</em> (affichage d'expressions
+régulières globales). </p>
+<p>La syntaxe des expressions régulières fleure bon les années 70 (en
+informatique, cela veut dire que c'est affreusement préhistorique),
+mais la puissance de la chose vaut bien la peine qu'on apprenne un peu
+à s'en servir. En cas de problème, on trouve même des assistants à
+l'écriture de regex sur internet.</p>
+<p>Vous devez maintenant utiliser la commande grep pour trouver des
+informations dans le répertoire de l'exercice. La page de manuel de
+grep n'est pas très utile car elle n'est absolument pas pédagogique
+(c'est un guide de référence), et elle ne donne même pas l'intégralité
+de la syntaxe. Préférez la <a href="https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re#Utilisation">page
+wikipédia</a>.</p>
+<h3 id="chercher-un-mot">Chercher un mot<a class="headerlink" href="#chercher-un-mot" title="Permanent link">⚓︎</a></h3>
+<p>On trouve 243 fichiers aux noms parfaitement inintéressants dans le répertoire
+<code>aa</code>. L'un d'entre eux contient la chaîne 'ici'. Utilisez grep pour trouver
+lequel.</p>
+<ol>
+<li>Quel est le mot étrange sur une ligne contenant 'ici' dans 'aa' ?</li>
+</ol>
+<h3 id="limiter-aux-mots-debutant-la-ligne">Limiter aux mots débutant la ligne<a class="headerlink" href="#limiter-aux-mots-debutant-la-ligne" title="Permanent link">⚓︎</a></h3>
+<p>Cette fois, dans le répertoire <code>bb</code>,
+'ici' est dans deux fichiers et il faut sélectionner la
+ligne où le motif est placé en début de ligne. Bien sûr, vous pouvez
+grepper 'ici' sans spécifier et choisir à la main lequel des deux
+recopier. Mais rien ne sert de tricher ici: ce n'est pas évalué. Il
+vaut mieux chercher la regex magique sélectionnant directement la
+bonne ligne (relisez wikipedia au besoin).</p>
+<ol>
+<li>Quel est le mot étrange sur une ligne débutant par 'ici' dans 'bb' ?</li>
+</ol>
+<h3 id="ignorer-la-casse">Ignorer la casse<a class="headerlink" href="#ignorer-la-casse" title="Permanent link">⚓︎</a></h3>
+<p>Cette fois, dans le répertoire <code>cc</code>,
+on cherche "plutot" sans accent, mais on ne sait pas s'il
+est écrit en majuscule ou minuscule. Il y a une option pour ignorer la
+casse, comme indiqué sur la page man de grep (<code>man grep</code>)
+ou dans le message d'aide du programme (<code>grep --help</code>).</p>
+<ol>
+<li>Quel est le mot étrange sur une ligne contenant 'plutot' dans 'cc' ? </li>
+</ol>
+<h3 id="repeter-un-motif">Répéter un motif<a class="headerlink" href="#repeter-un-motif" title="Permanent link">⚓︎</a></h3>
+<p>Comme indiqué sur wikipédia, on utilise des accolades pour indiquer
+des répétitions de motif. Mais grep demande à ce qu'on écrive <code>\{</code> au
+lieu de <code>{</code>. À la fin, la regex pour attraper <code>hiiiiiiiiii</code> sera
+<code>'hi\{10\}'</code>. N'oubliez pas les guillemets simples: <code>hi\{10\}</code>
+serait d'abord interprété par le shell qui passerait des choses
+étranges à grep.</p>
+<p>Là encore, il est plus facile de tricher que de trouver la bonne
+regex. Soyez fort, persistez !</p>
+<ol>
+<li>Quel est le mot sur une ligne contenant entre 3 et 7 'a' consécutifs dans 'dd' ?</li>
+</ol>
+<h3 id="classes-de-caracteres">Classes de caractères<a class="headerlink" href="#classes-de-caracteres" title="Permanent link">⚓︎</a></h3>
+<p>On cherche un mot contenant trois voyelles successives, suivies de
+quelque chose qui n'est pas un chiffre. On est obligé de décrire les
+voyelles en extension (il s'agit de l'une des lettres suivantes:
+<code>aeoiu</code>), mais on peut décrire les chiffres en intension (un
+caractère entre <code>0</code> et <code>9</code>).</p>
+<p>En grep, il faut bien écrire <code>[</code> et non <code>\[</code>. Mais c'est toujours
+une bonne idée de protéger ses expressions régulières du shell avec
+des guillemets simples.</p>
+<ol>
+<li>Quel est le mot sur une ligne contenant trois voyelles consécutives, non suivies d'un chiffre dans 'ee' ?</li>
+</ol>
+<h2 id="7-enchainements-de-commandes">7. Enchaînements de commandes<a class="headerlink" href="#7-enchainements-de-commandes" title="Permanent link">⚓︎</a></h2>
+<p>Jusqu'à présent, nous avons utilisé le terminal pour lancer des
+programmes les uns après les autres, mais ça n'allait pas très loin
+car ces programmes étaient très simples. La puissance du shell ne
+vient pas d'outils de plus en plus perfectionnés, mais plutôt de la
+facilité avec laquelle on peut combiner des programmes simples pour
+faire des outils parfaitement adaptés à la situation actuelle.</p>
+<p>Le plus souvent, on ne fait même pas un script à proprement parler,
+mais on combine plusieurs programmes sur la même ligne de commande. On
+peut par exemple recompiler un programme, l'exécuter sur plusieurs
+fichiers, vérifier que tout s'est bien passé puis effacer les fichiers
+temporaires. Le tout en une seule commande, accessible simplement avec
+flèche vers le haut. On trouve même
+<a href="https://www.commandlinefu.com/">ici</a> et
+<a href="http://www.bashoneliners.com/">là</a> des collections de ligne de
+commandes shell d'une seule ligne (on appelle ça des <em>one-liners</em>).
+Certaines sont pratiques, d'autres au mieux anecdotiques. Ces lignes
+sont parfois très longues, et toutes sont difficiles à relire et à
+comprendre. D'ailleurs, on n'apprend pas des <em>one-liners</em> par cœur, on
+les reconstruit quand on en a besoin. Voyons maintenant comment faire.</p>
+<h3 id="combiner-des-programmes">Combiner des programmes<a class="headerlink" href="#combiner-des-programmes" title="Permanent link">⚓︎</a></h3>
+<p>Pour exécuter deux commandes à la suite, il suffit de les séparer par
+<code>;</code> <code>touch temporaire; ls temporaire; rm temporaire</code>
+va créer un fichier vide, afficher son nom puis le supprimer.</p>
+<p>Parfois, on ne veut lancer la seconde commande que si la
+première s'est bien passée. Pour cela, il faut écrire <code>&amp;&amp;</code> (lu "ET"
+logique) entre les deux commandes. Comparez le résultat de
+<code>ls OK &amp;&amp; echo "le fichier existe"</code> et celui de
+<code>ls GaBuZoMeu &amp;&amp; echo "le fichier existe"</code>, sachant
+que le premier existe mais pas le second.</p>
+<p>À l'inverse, on peut vouloir ne lancer la seconde commande que si la
+première a échoué avec un OU logique. <code class="highlight">ls OK <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;PROBLÈME!&quot;</span></code> ou
+<code>ls GaBuZoMeu || echo "PROBLÈME!"</code></p>
+<p>On peut même grouper des commandes avec des parenthèses: l'ensemble
+s'est bien passé si la dernière se passe bien.
+<div class="highlight"><pre><span></span><code><span class="o">(</span>ls GaBuZoMeu<span class="p">;</span>ls OK<span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;le (dernier) fichier existe&quot;</span>
+</code></pre></div></p>
+<p><em>Note pour les plus courageux:</em> les commandes entre parenthèses s'exécutent
+dans un autre contexte, donc <code>(cd /)</code> ne change pas le
+répertoire courant, seulement celui du contexte entre parenthèses.
+Demandez à <code>pwd</code> (print working directory) ainsi si vous n'y croyez
+pas: <code>(cd / ; echo "changé:"; pwd) ; echo "pas changé:" ; pwd</code></p>
+<h3 id="rediriger-lentree-et-la-sortie">Rediriger l'entrée et la sortie<a class="headerlink" href="#rediriger-lentree-et-la-sortie" title="Permanent link">⚓︎</a></h3>
+<p>Il est très facile de capturer les affichages d'un programme dans un
+fichier. Par exemple <code>date &gt; sortie</code> place
+l'affichage de la commande à gauche du <code>&gt;</code> dans un fichier nommé
+<code>sortie</code> (voir le contenu du fichier:  <code>cat sortie</code>).
+Le symbole <code>&gt;</code> ne devrait pas se lire "plus grand" mais plutôt
+"vers", comme une flèche: l'affichage du programme à gauche est
+redirigé dans le fichier à droite.</p>
+<p>Si on réexécute la première commande <code>date &gt; sortie</code>,
+le contenu du fichier <code>sortie</code> est réécrit. On peut ajouter à la fin
+du fichier au lieu de le remplacer de la façon suivante :
+<code>date &gt;&gt; sortie</code>.</p>
+<p>On peut également faire le contraire, et demander à un programme de
+lire son entrée dans un fichier. Par exemple, ce répertoire compte un
+petit script permettant de calculer la somme de deux nombres.
+Essayez-le: <code>./plus.sh</code> (l'extension sh signifie qu'il
+est écrit en shell). Au lieu de lire depuis le clavier, on peut faire
+en sorte que ce script lise depuis un fichier.</p>
+<p><code>echo 4 6 &gt; fichier</code> permet de créer le fichier tandis
+que <code>./plus.sh &lt; fichier</code> lance le script en redirigeant
+son entrée standard depuis le fichier.</p>
+<p>On peut même rediriger à la fois l'entrée et la sortie d'un programme
+de la façon suivante: <code>./plus.sh &lt; fichier &gt; sortie</code></p>
+<p>Les redirections peuvent également être utilisée pour faire taire un
+programme un peu trop bavard. Par exemple <code>ls -lR /usr</code>
+demande à afficher la liste de beaucoup des fichiers du disque.
+C'est beaucoup, et vous voulez probablement faire <code>Ctrl-C</code> pour
+l'interrompre avant la fin. Mais si vous faites
+<code>ls -lR /usr &gt; sortie</code>, vous ne voyez plus tout cet
+affichage agaçant. Si vous voulez juste faire disparaître l'affichage
+sans le sauvegarder sur disque, redirigez la sortie vers le fichier
+<code>/dev/null</code> qui est une sorte de trou noir où tout ce qui est écrit
+est perdu.</p>
+<p>Mais si vous faites <code>ls GaBuZoMeu &gt; /dev/null</code> ou
+<code>echo bla bla &gt; fichier ; ./plus.sh &lt; fichier</code>, vous
+verrez quand même le message d'erreur s'afficher. Comment ce message
+a-t-il réussi à s'échapper du trou noir ? C'est qu'en fait, tous les
+programmes ont deux flux de sortie sur lesquels ils peuvent écrire: la
+sortie standard (nommée <code>stdout</code>) est celle par défaut. Le symbole
+<code>&gt;</code> ne redirige que <code>stdout</code> sans toucher à la sortie d'erreur
+(nommée <code>stderr</code>), qui continue donc à atterrir sur l'écran.
+Cela permet aux programmes d'indiquer leurs problèmes même quand on a
+redirigé leur sortie standard. Si on le souhaite, on peut rediriger
+<code>stderr</code> avec <code>2&gt;</code> : <code>ls GaBuZoMeu 2&gt; erreur</code>
+(inspectez  le fichier produit: <code>cat erreur</code> ). On peut
+enfin demander à rediriger <code>stderr</code> dans <code>stdout</code> avec <code>2&gt;&amp;1</code> (le
+flux 2 -- stderr -- va dans le flux 1 -- stdout).</p>
+<p>Et bien entendu, on peut rediriger l'entrée standard et les deux
+sorties tout en combinant des séquences d'opérations. La ligne devient
+un peu longue, mais ça ne pose pas de problème.
+<code>ls GaBuZoMeu 2&gt; /dev/null &amp;&amp; echo "Le fichier existe" || echo "PROBLÈME!"</code>
+<code>ls OK 2&gt;&amp;1 &gt;/dev/null &amp;&amp; (echo "Le fichier existe. Son contenu:"; cat &lt; OK) || echo "PROBLÈME!"</code></p>
+<p>Oui, le résultat final n'est ni très lisible ni même très utile, mais
+c'est un exemple de commande qu'on construit peu à peu lors d'une
+session de travail, pour répondre à un besoin immédiat. Prenez
+cependant le temps de comprendre ce qu'il contient et comment les
+morceaux sont combinés.</p>
+<h3 id="tuber-des-programmes">Tuber des programmes<a class="headerlink" href="#tuber-des-programmes" title="Permanent link">⚓︎</a></h3>
+<p>Faire <code>echo 4 &gt; fichier; echo 6 &gt;&gt; fichier ; ./plus.sh &lt; fichier</code> devient
+vite fastidieux, et en plus ça laisse un fichier sur disque. On peut
+faire mieux en branchant directement la sortie d'un programme sur
+l'entrée d'un autre, avec le symbole <code>|</code>. On le lit "tube" ou "pipe"
+en anglais, et on l'obtient sur un clavier français en faisant
+<code>AltGr+6</code>.</p>
+<p>L'exemple ci-dessus devient <code>echo 4 6 | ./plus.sh</code>, tout
+simplement. Et on peut enchaîner les commandes presque à l'infini:
+Avec <code>echo 4 6 | ./plus.sh | grep [0-9]</code>, le <code>grep</code>
+final filtre les lignes contenant au moins un chiffre, c'est-à-dire
+celle de résultat.</p>
+<p><strong>Attention!</strong> <code>|</code> et <code>&gt;</code> sont TRÈS différents. Le premier
+redirige la sortie d'un programme dans un autre, tandis que le second
+écrit dans un fichier. Exécuter <code>echo 4 6 &gt; ./plus.sh</code> serait une
+TRÈS mauvaise idée puisque ça écrirait <code>4 6</code> <strong>à la place</strong> du
+script <code>./plus.sh</code>. Avec <code>|</code> vous essayez de parler au programme à
+droite. Avec <code>&gt;</code> vous tentez de l'effacer en lui écrivant dessus...</p>
+<h3 id="ex-71">Ex 7.1<a class="headerlink" href="#ex-71" title="Permanent link">⚓︎</a></h3>
+<p>Le fichier <code>animaux</code> contient une liste d'animaux, mais avec des
+doublons. On voudrait utiliser la commande <code>uniq</code> pour retirer les
+lignes en doublon, puis écrire le résultat dans un fichier
+<code>animaux.ok</code>. Mais malheureusement, <code>uniq</code> ne supprime que les
+doublons que s'il s'agit de lignes consécutives dans le flux. Il
+faudra donc utiliser la commande <code>sort</code> pour trier les animaux avant
+de supprimer les doublons.</p>
+<h3 id="ex-72">Ex 7.2<a class="headerlink" href="#ex-72" title="Permanent link">⚓︎</a></h3>
+<p>On voudrait constituer un fichier nommé <code>ligne33</code> contenant exactement
+la ligne 33 du fichier <code>animaux.ok</code>.</p>
+<p><em>Indication:</em> vous aurez besoin des commandes <code>head</code> et <code>tail</code>.
+Quand on ne leur précise pas le fichier à lire, ces commandes lisent
+leur entrée standard. Par défaut, <code>head</code> affiche les 10 premières
+lignes de ce qu'il lit tandis que <code>tail</code> en affiche les 10 dernières
+lignes. Regardez dans le manuel comment changer le nombre de lignes
+affichées.</p>
+<h3 id="ex-73">Ex 7.3<a class="headerlink" href="#ex-73" title="Permanent link">⚓︎</a></h3>
+<p>Combien d'animaux de la liste de départ (pas animaux.ok) ont 3 voyelles successives dans leur nom?</p>
+<p><em>Indication:</em> utilisez <code>grep</code>, <code>uniq</code> et <code>sort</code>, ainsi que la
+commande <code>wc -l</code> qui compte le nombre de lignes de son entrée
+standard.</p>
+<ol>
+<li>Que contient le fichier caché dans 'bbb'?</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../index.html" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Infos" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              Infos
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ch18/reseaux.html" class="md-footer__link md-footer__link--next" aria-label="Suivant: CH18 : Réseaux - principes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              CH18 : Réseaux - principes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:uglimusic@gmail.com" target="_blank" rel="noopener" title="Écrire à l&#39;auteur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>

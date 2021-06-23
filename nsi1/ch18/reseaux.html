@@ -1,0 +1,882 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>CH18 : Réseaux - principes - NSI au lycée Rabelais de Saint Brieuc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reseau-principes" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-header__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI au lycée Rabelais de Saint Brieuc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CH18 : Réseaux - principes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Mode sombre" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Mode clair" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        NSI1
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nsi2/index.html" class="md-tabs__link">
+        NSI2
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-nav__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    NSI au lycée Rabelais de Saint Brieuc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        NSI1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../initiation_au_shell_linux/activite.html" class="md-nav__link">
+        Activité : initiation au shell linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CH18 : Réseaux - principes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="reseaux.html" class="md-nav__link md-nav__link--active">
+        CH18 : Réseaux - principes
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lidee-du-modele-a-couches-empilees" class="md-nav__link">
+    L'idée du modèle à couches empilées
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lexemple-du-reseau-postal" class="md-nav__link">
+    L'exemple du réseau postal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-modele-informatique-tcpip" class="md-nav__link">
+    Un modèle informatique : TCP/IP
+  </a>
+  
+    <nav class="md-nav" aria-label="Un modèle informatique : TCP/IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#du-point-de-vue-de-lemetteur" class="md-nav__link">
+    Du point de vue de l'émetteur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#du-point-de-vue-du-recepteur" class="md-nav__link">
+    Du point de vue du récepteur
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-materiel" class="md-nav__link">
+    Le matériel
+  </a>
+  
+    <nav class="md-nav" aria-label="Le matériel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#couche-physique" class="md-nav__link">
+    Couche physique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#couche-lien" class="md-nav__link">
+    Couche lien
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#couche-reseau" class="md-nav__link">
+    Couche réseau
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#couches-superieures" class="md-nav__link">
+    Couches supérieures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch19/reseau_local.html" class="md-nav__link">
+        CH19 : Réseau local
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch20/controle_de_transmission.html" class="md-nav__link">
+        CH20 : Contrôle de transmission
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        NSI2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          NSI2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch24/diviser_pour_regner.html" class="md-nav__link">
+        CH24 : diviser pour régner
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch25/programmation_dynamique.html" class="md-nav__link">
+        CH25 : programmation dynamique
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch26/recherche_textuelle.html" class="md-nav__link">
+        CH26 : recherche textuelle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch27/protocoles_de_routage.html" class="md-nav__link">
+        CH27 : protocoles de routage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi2/ch28/calculabilite.html" class="md-nav__link">
+        CH28 : calculabilité et décidabilité
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="reseau-principes">Réseau - principes<a class="headerlink" href="#reseau-principes" title="Permanent link">⚓︎</a></h1>
+<p>Un <em>réseau</em>, c'est un ensemble d'<em>entités</em> qui <em>communiquent</em> :</p>
+<ul>
+<li>des fourmis qui envoient des informations par voie <em>chimique</em> (les phéromones);</li>
+<li>des individus qui s'envoient des colis postaux ou du courrier;</li>
+<li>des ordinateurs qui s'envoient des données.</li>
+</ul>
+<p>Chacun des trois exemples ci-dessus est remarquable par son efficacité.</p>
+<p>Le premier est sans doute le fruit de l'évolution.</p>
+<p>Le deuxième est le résultat de <em>conventions</em> et <em>processus</em> que les êtres humains ont produits : parmi ces conventions 
+il y a les règles d'écriture d'une adresse postale et aussi le moyen de payer le transport du colis <em>via</em> un ou des 
+timbres postaux et parmi les processus il y a l'acheminement du courrier par voie routière, ferrée, maritime ou aérienne.</p>
+<p>Quant au troisième, il est également le fruit de conventions et processus très aboutis que nous allons tenter de 
+détailler dans ce chapitre, il fonctionne remarquablement bien et s'appelle Internet. Ce réseau, composé de <em>milliards</em>
+de machines qui communiquent entre elles et qui permet à deux ordinateurs séparés de milliers de kilomètres de 
+s'échanger une quantité considérable d'informations en une fraction de seconde est bel et bien la plus grande 
+structure que l'être humain ait construit à ce jour. Elle mérite bien qu'on s'attarde un peu sur son fonctionnement.</p>
+<h2 id="lidee-du-modele-a-couches-empilees">L'idée du modèle à couches empilées<a class="headerlink" href="#lidee-du-modele-a-couches-empilees" title="Permanent link">⚓︎</a></h2>
+<p>La finalité d'un réseau, quel qu'il soit, c'est transporter de la manière la plus fiable possible des informations (ou
+des biens), lesquelles sont émises par une entité A, à destination d'une entité B, et seront transmises en passant très 
+probablement par des entités intermédiaires.</p>
+<p>Le processus peut être variable mais il existe des mécanismes communs à la plupart des moyens de communication :
+on cherche à décomposer en étapes et les similitudes apparaissent :</p>
+<ul>
+<li>A possède une information « brute »;</li>
+<li>l'information est « conditionnée » pour être envoyée;</li>
+<li>il existe un moyen fiable de savoir comment faire arriver l'information en B;</li>
+<li>en définitive, la transmission s'effectue par un moyen physique;</li>
+<li>du point de vue de B, les choses s'effectuent « à l'envers » : par moyen physique, A a réussi à lui faire parvenir 
+  une information « conditionnée » que B traite pour finalement disposer de l'information brute de A.</li>
+</ul>
+<h2 id="lexemple-du-reseau-postal">L'exemple du réseau postal<a class="headerlink" href="#lexemple-du-reseau-postal" title="Permanent link">⚓︎</a></h2>
+<p>Les considérations précédentes sont très abstraites, nous allons donc envisager l'exemple d'une personne A qui souhaite 
+envoyer un cadeau à B. L'information est le cadeau en lui même, le réseau est le réseau postal :</p>
+<p><img alt="5couchesposte" src="img/modele_5_couches_poste.svg" width="50%" /></p>
+<p>On a décomposé la communication en 5 couches, auxquelles on a donné des noms <em>qui sont déjà liés au vocabulaire des 
+réseaux informatiques</em>. En voici le détail dans l'ordre chronologique:</p>
+<details class="example"><summary>Communication</summary><div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Du point de vue de A</label><div class="tabbed-content">
+<ul>
+<li><strong>Couche 5 - Application :</strong> A veut envoyer un cadeau à B;</li>
+<li><strong>Couche 4 - Transport :</strong> le cadeau est emballé pour pouvoir être transporté et reçu intact. On y met aussi 
+  l'adresse postale de B;</li>
+<li><strong>Couche 3 - Réseau :</strong> le bureau  de poste détermine comment acheminer le colis : il a déjà l'adresse postale de 
+  B mais il trouve par lui-même la route qu'il fera suivre au colis;</li>
+<li><strong>Couche 2 - Lien :</strong> La route est trouvée mais il faut déterminer comment transporter ce colis : si c'est par 
+  voie routière on doit savoir quels véhicules capables d'acheminer le cadeau sont disponibles maintenant ou bien quels sont ceux qui le seront très prochainement;</li>
+<li><strong>Couche 1 - Physique :</strong> c'est le transport effectif du colis.</li>
+</ul>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Du point de vue de B</label><div class="tabbed-content">
+<ul>
+<li><strong>Couche 1 - Physique :</strong> c'est également le transport effectif du colis;         </li>
+<li><strong>Couche 2 - Lien :</strong> le colis arrive au bureau postal;</li>
+<li><strong>Couche 3 - Réseau :</strong> le bureau  de poste détermine comment acheminer le colis chez B;</li>
+<li><strong>Couche 4 - Transport :</strong> le cadeau est arrivé chez B qui le déballe;                    </li>
+<li><strong>Couche 5 - Application :</strong> B profite de son cadeau.</li>
+</ul>
+</div>
+</div>
+</details>
+<p>L'intérêt de la décomposition en couches est qu'elle sépare un problème complexe en une succession de tâches plus 
+simples. Chaque couche n'interagit directement qu'avec ses couches voisines (ce sont les flèches en trait plein) de 
+manière <em>relativement simple</em>. L'interaction de chaque couche chez A avec la couche de même niveau chez B est cependant 
+plus complexe (ce sont les flèches en pointillés).</p>
+<ul>
+<li><strong>Couche 1 A - Couche 1 B :</strong> c'est le trajet du véhicule qui transporte le cadeau;</li>
+<li><strong>Couche 2 A - Couche 2 B :</strong> c'est la planification du trajet;</li>
+<li><strong>Couche 3 A - Couche 3 B :</strong> c'est l'envoi du cadeau au niveau postal;</li>
+<li><strong>Couche 4 A - Couche 4 B :</strong> c'est la phase emballage/déballage;</li>
+<li><strong>Couche 5 A - Couche 5 B :</strong> c'est l'envoi du cadeau de A à B.</li>
+</ul>
+<p>En général un colis postal est d'un seul tenant mais on peut très bien imaginer que le cadeau que A veut envoyer à B 
+soit très volumineux (par exemple la collection des  romans « Les Rougon-Macquart » d'Emile Zola qui comporte 20 
+livres qui se suivent). Lors de la phase d'emballage, plusieurs «paquets » sont créés et envoyés séparément. B ne 
+les reçoit pas obligatoirement dans l'ordre d'envoi mais ce n'est pas grave car il finit par avoir tous les paquets et
+remet les romans dans le bon ordre.</p>
+<h2 id="un-modele-informatique-tcpip">Un modèle informatique : TCP/IP<a class="headerlink" href="#un-modele-informatique-tcpip" title="Permanent link">⚓︎</a></h2>
+<p>Un ordinateur A veut envoyer des données à un ordinateur B. On supposera que ces données sont <em>un fichier</em>. 
+Le processus ressemble à l'exemple précédent. On va présenter le modèle le plus courant dont le nom est TCP/IP et qu'on 
+peut également modéliser avec 5 couches empilées.
+On appelle <em>protocole</em> tout programme utilisé par une couche.</p>
+<h3 id="du-point-de-vue-de-lemetteur">Du point de vue de l'émetteur<a class="headerlink" href="#du-point-de-vue-de-lemetteur" title="Permanent link">⚓︎</a></h3>
+<p><img align="right" alt="modele5couches" src="img/modele_5_couches_up.svg" width="50%" />
+Ce qu'il faut retenir c'est que lors de la transmission</p>
+<ul>
+<li>très tôt dans le processus, le fichier est découpé en paquets; </li>
+<li>chaque couche (hormis la couche application) ajoute son propre en-tête aux données reçues par la couche supérieure 
+  et destiné à la même couche pour le destinataire. Ce procédé s'appelle <em>encapsulation</em>.</li>
+</ul>
+<details class="note"><summary>Couche 5 - Application</summary><p>Cette couche est chargée d'envoyer les données d'un programme sur l'ordinateur A à un 
+programme sur l'ordinateur B. Puisque plusieurs programmes peuvent utiliser la couche transport en même temps, il 
+existe 65536 <em>ports</em> et chaque application va utiliser un ou plusieurs ports particuliers. Les numéros de ports sont 
+attribués par convention mais il est possible de les changer.</p>
+<p>Les protocoles les plus connus sont</p>
+<ul>
+<li>HTTP (<em>HyperText Transfer Prococol</em>), protocole de transfert hypertexte, sur le port 80 ou 443 pour sa version 
+sécurisée HTTPS;</li>
+<li>FTP (<em>File Transfer Protocol</em>), protocole de transfert de fichiers, sur les ports 20 et 21, et 990 pour sa version
+  sécurisée FTPS; </li>
+<li>SMTP (<em>Simple Mal Transfer Protocol</em>), chargé d'envoyer les emails et POP3 (<em>Post Office Protocol</em>) de les
+  récupérer;</li>
+<li>DNS (<em>Domain Name System</em>), chargé de traduire un nom de site en adresse IP;</li>
+<li>BitTorrent, chargé de récupérer et diffuser des fichiers.</li>
+</ul>
+</details>
+<details class="note"><summary>Couche 4 - Transport</summary><p>Cette couche va découper les données fournie par la couche 5 en paquets (d'une taille de 
+l'ordre du kilooctet). Elle ajoute également son propre en-tête à chaque paquet.</p>
+<p>Les protocoles les plus connus sont</p>
+<ul>
+<li>TCP (<em>Transfert Control Protocol</em>), protocole de contrôle des transmissions, qui est fiable, fonctionne sur le 
+  principe d'une connexion avec accusé de réception.</li>
+<li>UDP (<em>User Datagram Protocol</em>), non fiable en théorie, sans connexion ni accusé de réception, mais plus rapide.</li>
+</ul>
+<p>On utilise TCP lorsque les données à recevoir sont sensibles (téléchargement d'un fichier). UDP sera préféré dans le 
+cas du <em>streaming</em> : le protocole est plus rapide et permet par exemple de visionner un film avec une bonne qualité, 
+et si des données sont perdues, ce n'est pas grave, on passe aux données suivantes, cela ne perturbe pas trop le film 
+(on ne va pas, comme ce serait le cas pour TCP, attendre que les données soient arrivées, et faire des pauses).</p>
+</details>
+<details class="note"><summary>Couche 3 - Réseau </summary><p>Cette  couche est responsable de l'aiguillage des paquets vers l'adresse de destination. Elle 
+encapsule les paquets de la couche 4 et y ajoute son propre en-tête (en général un en-tête IP). Du point de vue de 
+cette couche, les paquets sont à envoyer à un ordinateur muni d'une adresse IP (nombre attribué par ce protocole).</p>
+<p>Pour que les paquets trouvent leur chemin de l'ordinateur A à l'ordinateur B (qui peut être à plusieurs milliers de 
+kilomètres de A), de <em>protocoles de routage sont utilisés</em>, les machines dédiées au routage s'appellent des <em>routeurs</em>
+. Un routeur n'utilise que les couches 1,2 et 3 du modèle.</p>
+<p>Il faut retenir que chaque paquet suit son propre chemin, indépendamment des autres et qu'il a un «temps de vie» 
+(pour éviter, s'il est perdu, de circuler sur le réseau pendant des années).</p>
+<p>Parmi les protocoles utilisés par cette couche on trouve</p>
+<ul>
+<li>IP (<em>Internet Protocol</em>), décrit ci-dessus; </li>
+<li>ARP (<em>Address Resolution Protocol</em>) qui permet de trouver l'adresse <em>physique</em> de l'ordinateur connecté à 
+  l'adresse IP. Ce protocole est utilisé lorsque l'information est arrivée à B et «remonte les couches ».</li>
+</ul>
+</details>
+<details class="note"><summary>Couche 2 - Lien</summary><p>Elle est chargée de coordonner le transfert des données ainsi que le «temps de parole » de chaque machine connectée au 
+support physique (si toutes les machines connectées à un même support émettent des données en même temps, il risque 
+d'y avoir des <em>collisions</em>). Elle encapsule les paquets de la couche supérieure dans ce qu'on appelle des <em>trames</em> 
+(trames Ethernet par exemple).</p>
+<p>Du point de vue de la couche lien, la destination d'un paquet est une adresse physique appelée adresse MAC 
+(<em>Media Access Control</em>), déterminée par la carte réseau de la machine destinataire.</p>
+<p>Les protocoles utilisés par cette couche sont Ethernet (réseau filaire), Wi-Fi (réseau <em>via</em> les ondes radios) et 
+Bluetooth (ondes radio également).</p>
+</details>
+<details class="note"><summary>Couche 1 - Physique</summary><p>Elle est chargée de la transmission effective des trames (qu'elle encapsule également) d'un bout à l'autre du support 
+physique.</p>
+</details>
+<h3 id="du-point-de-vue-du-recepteur">Du point de vue du récepteur<a class="headerlink" href="#du-point-de-vue-du-recepteur" title="Permanent link">⚓︎</a></h3>
+<p><img alt="utili" src="img/modele_5_couches_down.svg" width="33%" />
+``
+Il faut retenir que chaque couche dépaquète le paquet (ou trame) qui lui est adressé en enlevant l'en-tête correspondant 
+et passe le relais à la couche du dessus.</p>
+<h2 id="le-materiel">Le matériel<a class="headerlink" href="#le-materiel" title="Permanent link">⚓︎</a></h2>
+<h3 id="couche-physique">Couche physique<a class="headerlink" href="#couche-physique" title="Permanent link">⚓︎</a></h3>
+<details class="note"><summary>Liaison filiaire</summary><p><img align="right" alt="eth" src="img/cable_ethernet.png" width="50%" />
+Les informations peuvent être transmises <em>via</em> des câbles. Le plus utilisé est le câble Ethernet. Son nom est UTP-CAT5 
+ou UTP-CAT6, la différence étant que le second permet un débit dix fois plus grand que le premier ( 1 Gbit/s contre 100
+Mbit/s).</p>
+<p>Parmi les autres types de liaisons filaires, on compte la liaison par câble téléphonique (qui permet par exemple de se 
+connecter à Internet par ADSL) et la liaison par câble optique.</p>
+</details>
+<details class="note"><summary>Bluetooth</summary><p><img align="left" alt="BT" src="img/logo_bluetooth.png" width="5%" />
+C'est une technologie utilisant les ondes radios pour permettre la communication entre les équipements électroniques 
+(imprimantes, téléphones, scanners, système audio portatif ou dans un véhicule...) à courte distance. Ses 
+fonctionnalités sont assez limitées en terme de mise en réseau.</p>
+</details>
+<details class="note"><summary>Wi-Fi</summary><p><img align="left" alt="wifi" src="img/logo_wifi.png" width="10%" />
+Cette technologie utilise également les ondes radio. Son nom de norme est IEEE 802.11 et c'est le moyen de transmission 
+des données sans fil le plus utilisé.</p>
+</details>
+<details class="note"><summary>Répéteur</summary><p><img align="right" alt="rep" src="img/repeteur.jpg" width="50%" />
+Lorsqu'un signal parcourt le support physique, son intensité s'atténue avec la distance. Un <em>répéteur</em> régénère le 
+signal perçu avec plus d'intensité pour pallier ce problème.</p>
+</details>
+<details class="note"><summary>Concentrateur</summary><p><img alt="hub" src="img/hub.png" width="50%" />
+Le <strong>concentrateur</strong> (<em>hub</em>) est moins utilisé de nos jours. C'est une version « multiprise » du répéteur : quand il reçoit 
+un signal sur un des ses branchements, il les recopie sur tous les autres branchements sans se soucier de l'éventuel 
+destinataire du signal.</p>
+</details>
+<details class="note"><summary>Carte réseau</summary><p><img alt="rezo" src="img/carte_reseau.jpg" width="50%" />
+Que ce soit une clé USB Wi-Fi ou une carte réseau interne, c'est la même chose : ce composant est indispensable pour 
+connecter un ordinateur à un réseau.</p>
+<p>Chaque carte réseau possède une <em>adresse MAC</em> : c'est l'adresse physique de la carte, elle permet d'identifier 
+l'ordinateur de manière unique.</p>
+</details>
+<h3 id="couche-lien">Couche lien<a class="headerlink" href="#couche-lien" title="Permanent link">⚓︎</a></h3>
+<details class="note"><summary>Commutateur</summary><p><img align="left" alt="switch" src="img/switch.jpg" width="50%" />
+Le <strong>commutateur</strong> (<em>switch</em> en Anglais) est un équipement à plusieurs branchements (au moins 2) appelés <em>ports</em>
+(ne pas confondre avec la notion de port utilisé par une application).</p>
+<p>Son rôle est de rediriger une trame reçue vers l'ordinateur de destination.</p>
+</details>
+<h3 id="couche-reseau">Couche réseau<a class="headerlink" href="#couche-reseau" title="Permanent link">⚓︎</a></h3>
+<details class="note"><summary>Routeur</summary><p><img align="right" alt="router" src="img/routeur.jpg" width="50%" />
+Le <strong>routeur</strong> (<em>router</em> en Anglais) permet d'effectuer le routage des paquets et de les faire transiter d'une partie du 
+réseau vers une autre (par exemple d'un réseau local à un autre, nous verrons cela plus tard).</p>
+</details>
+<h3 id="couches-superieures">Couches supérieures<a class="headerlink" href="#couches-superieures" title="Permanent link">⚓︎</a></h3>
+<p>C'est un ordinateur qui exécute les protocoles des couches transport et application. Cela peut être un téléphone, une tablette, un ordinateur portable ou de bureau ou bien encore un objet connecté tel qu'une enceinte Bluetooth.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../initiation_au_shell_linux/activite.html" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Activité : initiation au shell linux" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              Activité : initiation au shell linux
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ch19/reseau_local.html" class="md-footer__link md-footer__link--next" aria-label="Suivant: CH19 : Réseau local" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              CH19 : Réseau local
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:uglimusic@gmail.com" target="_blank" rel="noopener" title="Écrire à l&#39;auteur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>

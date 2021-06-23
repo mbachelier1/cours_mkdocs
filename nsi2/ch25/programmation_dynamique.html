@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>CH25 : programmation dynamique - NSI au lycée Rabelais de Saint Brieuc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programmation-dynamique" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-header__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI au lycée Rabelais de Saint Brieuc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CH25 : programmation dynamique
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Mode sombre" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Mode clair" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nsi1/index.html" class="md-tabs__link">
+        NSI1
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        NSI2
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-nav__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    NSI au lycée Rabelais de Saint Brieuc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        NSI1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/initiation_au_shell_linux/activite.html" class="md-nav__link">
+        Activité : initiation au shell linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch18/reseaux.html" class="md-nav__link">
+        CH18 : Réseaux - principes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch19/reseau_local.html" class="md-nav__link">
+        CH19 : Réseau local
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch20/controle_de_transmission.html" class="md-nav__link">
+        CH20 : Contrôle de transmission
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        NSI2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          NSI2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch24/diviser_pour_regner.html" class="md-nav__link">
+        CH24 : diviser pour régner
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CH25 : programmation dynamique
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="programmation_dynamique.html" class="md-nav__link md-nav__link--active">
+        CH25 : programmation dynamique
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#un-exemple-bien-connu" class="md-nav__link">
+    Un exemple bien connu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-memoisation" class="md-nav__link">
+    La mémoïsation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#une-remarque-importante" class="md-nav__link">
+    Une remarque importante
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendu-de-monnaie" class="md-nav__link">
+    Rendu de monnaie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alignement-de-sequences" class="md-nav__link">
+    Alignement de séquences
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch26/recherche_textuelle.html" class="md-nav__link">
+        CH26 : recherche textuelle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch27/protocoles_de_routage.html" class="md-nav__link">
+        CH27 : protocoles de routage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch28/calculabilite.html" class="md-nav__link">
+        CH28 : calculabilité et décidabilité
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="programmation-dynamique">Programmation dynamique<a class="headerlink" href="#programmation-dynamique" title="Permanent link">⚓︎</a></h1>
+<h2 id="un-exemple-bien-connu">Un exemple bien connu<a class="headerlink" href="#un-exemple-bien-connu" title="Permanent link">⚓︎</a></h2>
+<p>Nous commençons à bien connaître la suite de Fibonacci</p>
+<div class="arithmatex">\[F_n=\begin{cases}1 &amp; \mbox{si } n=0\mbox{ ou }n=1\\ F_{n-1}+F_{n-2} &amp;\mbox{sinon}\end{cases}\]</div>
+<p>Si on la programme <em>naïvement</em> de manière récursive, voici ce qu'on obtient :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>Or, voici l'arbre des appels récursifs lors de l'exécution de <code>fibo(4)</code> :</p>
+<p><img alt="fibo_4" src="img/fibo_4.svg" width="75%" /></p>
+<p>Et pour <code>fibo(5)</code> on obtient :</p>
+<p><img alt="fibo_5" src="img/fibo_5.svg" width="75%" /></p>
+<p>Lors de cet appel, <code>fibo(3)</code> est appelée 2 fois, <code>fibo(2)</code> 3 fois, <code>fibo(1)</code> 5 fois et <code>fibo(0)</code> 3 fois !</p>
+<p>Il n'est donc pas étonnant que <code>fibo(40)</code> prenne quelques secondes. Quant à <code>fibo(100)</code>, ce n'est même pas la peine d'y
+penser !</p>
+<p>Notre stratégie, de type « diviser pour régner », décompose le calcul de <code>fibo(n)</code> en 2 calculs plus simples, mais <em>ces
+problèmes ne sont pas indépendants</em> , comme l'illustre le graphe suivant, obtenu à partir du schéma précédent.</p>
+<p><img alt="fibo_5" src="img/fibo_5_graphe.svg" width="40%" /></p>
+<h2 id="la-memoisation">La mémoïsation<a class="headerlink" href="#la-memoisation" title="Permanent link">⚓︎</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Définition : mémoïsation</p>
+<p>C'est le fait de garder en mémoire les solutions des sous-problèmes pour pouvoir les réutiliser sans avoir à les 
+déterminer de nouveau.</p>
+<p>Cela veut dire qu'avant de renvoyer un résultat, la fonction le stocke (dans une liste ou un dictionnaire). </p>
+</div>
+<p>Ce qui est fort agréable, c'est que les listes et les dictionnaires sont de <em>type mutable</em>, ce qui nous permet d'écrire
+ceci :</p>
+<div class="highlight"><pre><span></span><code><span class="n">solution</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># on sait que les 2 premiers termes sont 1</span>
+
+
+<span class="k">def</span> <span class="nf">fibo_dyn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">solution</span><span class="p">):</span>  <span class="c1"># si solution[n] n&#39;existe pas</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">fibo_dyn</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo_dyn</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># on calcule récursivement</span>
+        <span class="n">solution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c1"># puis on stocke la solution</span>
+        <span class="k">return</span> <span class="n">r</span>  <span class="c1"># et on la renvoie</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">solution</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>  <span class="c1"># sinon on renvoie la solution déjà calculée</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fibo_dyn</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+</code></pre></div>
+<p>Et là, on peut calculer rapidement que <span class="arithmatex">\(F_{40}=165\,580\,141\)</span>, et même que</p>
+<p><span class="arithmatex">\(\scriptsize F_
+{500}=225\,591\,516\,161\,936\,330\,872\,512\,695\,036\,072\,072\,046\,011\,324\,913\,758\,190\,588\,638\,866\,418\,474\,627\,738\,686\,883\,405\,015\,987\,052\,796\,968\,498\,626\)</span></p>
+<p>Le fait d'utiliser la mémoïsation rend les choses bien plus rapides !</p>
+<div class="admonition note">
+<p class="admonition-title">Exercice : programmation dynamique de la suite de Fibonacci</p>
+<p>En s'inspirant du script précédent, écrire la fonction <code>fibo_dyn2</code> qui mémoïse les solutions à l'aide d'un
+dictionnaire (vide au départ).</p>
+</div>
+<details class="note"><summary>Solution</summary><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibo_dyn2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibo_dyn2</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo_dyn2</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+
+<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fibo_dyn2</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
+</details>
+<div class="admonition danger">
+<p class="admonition-title">Comparaison de l'efficacité des 2 méthodes</p>
+<p><a href="https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/89a4-17353">L'activité est ici</a></p>
+</div>
+<h2 id="une-remarque-importante">Une remarque importante<a class="headerlink" href="#une-remarque-importante" title="Permanent link">⚓︎</a></h2>
+<p>L'exemple précédent est <em>pédagogique</em> car il montre bien l'intérêt de la mémoïsation. Cependant il n'y a pas besoin d'
+utiliser cette technique pour avoir une fonction efficace : il suffit de programmer de manière <em>itérative</em> et non
+<em>récursive</em> :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fibo_iteratif</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>  <span class="c1"># on initialise a = F0 et b = F1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># a devient b et b devient a + b</span>
+    <span class="k">return</span> <span class="n">b</span>
+</code></pre></div>
+<p>Il va donc falloir trouver des exemples pour lesquels</p>
+<ul>
+<li>on ne voit pas de version itérative évidente;</li>
+<li>les sous-problèmes ne sont pas indépendants : sans programmation dynamique on calculerait plusieurs fois les sous
+  solutions.</li>
+</ul>
+<h2 id="rendu-de-monnaie">Rendu de monnaie<a class="headerlink" href="#rendu-de-monnaie" title="Permanent link">⚓︎</a></h2>
+<p>Nous avons déjà rencontré cette situation l'année dernière, on y appliquait un algorithme <em>glouton</em> : pour rendre un
+montant donné, on commence par rendre les billets/pièces qui ont le plus de valeur et ainsi de suite.</p>
+<details class="note"><summary>Code du rendu de monnaie glouton</summary><div class="highlight"><pre><span></span><code><span class="n">liste_valeurs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># la liste doit être triée dans l&#39;ordre décroissantr</span>
+
+
+<span class="k">def</span> <span class="nf">rendu_monnaie</span><span class="p">(</span><span class="n">montant</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="n">liste_rendu</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">montant</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">liste_valeurs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">montant</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">liste_rendu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liste_valeurs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">montant</span> <span class="o">-=</span> <span class="n">liste_valeurs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">liste_rendu</span>
+</code></pre></div>
+</details>
+<p>Avec le système euro, on obtenait</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">rendu_monnaie</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p>Ce qui nous donne un nombre minimal de pièces/billets rendus.</p>
+<p>Avec le système euro, l'aglorithme glouton donne toujours la solution optimale, mais ce n'est pas toujours le cas !</p>
+<p>Par exemple, en utilisant l'ancien système monétaire Anglais</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">liste_valeurs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># ancien système Anglais</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rendu_monnaie</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<p>Or la solution optimale est <code class="highlight"><span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span></code>...</p>
+<p>Notre algorithme glouton ne convient donc pas dans toutes les situations. Or nous voulons, pour un système monétaire
+donné, trouver <strong>le plus petit nombre de pièces/billets nécessaires</strong> pour rendre une somme quelconque.</p>
+<p>On va utiliser une méthode de type « diviser pour régner ». Soit </p>
+<ul>
+<li>
+<p><span class="arithmatex">\(n\)</span> la somme à rendre, strictement positive; </p>
+</li>
+<li>
+<p><span class="arithmatex">\(\mathscr{P}=\{P_0;\,...;\,P_k\}\)</span> le système monétaire;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(R(n)\)</span> le nombre minimum de pièces pour rendre <span class="arithmatex">\(n\)</span> selon <span class="arithmatex">\(\mathscr{P}\)</span>. </p>
+</li>
+</ul>
+<p>Alors :</p>
+<ul>
+<li>
+<p>si <span class="arithmatex">\(n\in\mathscr{P}\)</span> cela veut dire qu'une pièce suffit et alors <span class="arithmatex">\(R(n)=1\)</span>.</p>
+</li>
+<li>
+<p>sinon, appelons <span class="arithmatex">\(\mathscr{P}_n=\{x \in\mathscr{P},\, x &lt; n\}\)</span> l'ensemble des pièces qui valent moins que <span class="arithmatex">\(n\)</span>. Alors
+  il suffit de </p>
+<ul>
+<li>regarder ce que vaut <span class="arithmatex">\(R(n-x)\)</span> pour tout <span class="arithmatex">\(x\in\mathscr{P}_n\)</span>;</li>
+<li>prendre le minimum <span class="arithmatex">\(m\)</span> de toutes ces valeurs;
+  et ainsi <span class="arithmatex">\(R(n)= 1 + m\)</span>.</li>
+</ul>
+<p><span class="arithmatex">\(R_n=\begin{cases}1 &amp; \mbox{si } n\in\mathscr{P}\\ 
+   1+ min(\{R(n-x),\, x\in\mathscr{P},\, x&lt;n\}) &amp;\mbox{sinon}\end{cases}\)</span></p>
+</li>
+</ul>
+<p>On peut illustrer cette méthode pour rendre 7 livres dans l'ancien système monétaire Anglais :</p>
+<p><img alt="rendu" src="img/graphe_rendu.svg" width="75%" /></p>
+<p>On se rend compte que 2 pieces suffisent pour rendre la monnaie mais on voit aussi que <span class="arithmatex">\(R(4)\)</span> est calculé 2 fois, ainsi 
+que <span class="arithmatex">\(R(3)\)</span>, <em>et caetera</em> : les sous-problèmes sont loins d'être indépendants, la programmation dynamique va nous aider !</p>
+<div class="admonition danger">
+<p class="admonition-title">Programmation dynamique du rendu de monnaie optimal</p>
+<p><a href="https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/be6f-18636">L'activité est ici.</a></p>
+</div>
+<h2 id="alignement-de-sequences">Alignement de séquences<a class="headerlink" href="#alignement-de-sequences" title="Permanent link">⚓︎</a></h2>
+<p>On dispose de deux chaînes de caractères : <code>A</code>, qui vaut <code>INFORMATIQUE</code>, et <code>B</code>, qui vaut <code>NUMERIQUE</code>.
+On aimerait mettre ces deux chaînes de caractères en correspondance de la manière suivante :</p>
+<ul>
+<li>On place les 2 chaînes l'une en desous de l'autre;</li>
+<li>Si les derniers caractères des deux chaînes coïncident, alors on passe aux caractères suivants;</li>
+<li>Sinon, on va ajouter un trou dans une des deux chaînes (mais laquelle ?), symbolisé par un <code>-</code>
+  et on passe aux caractères suivant.</li>
+</ul>
+<p>Voici ce que cela donne :</p>
+<p><img alt="enorme" src="img/enorme.gif" width="50%" /></p>
+<p>Dans cette situation on a besoin de 9 tirets, pas moins.</p>
+<p>L'objectif est d'aligner le <strong>maximum</strong> de lettres (donc de mettre le moins de <code>-</code> possible).
+Ce n'est pas un problème simple, surtout quand les chaînes sont longues :</p>
+<p><img alt="adn" src="img/adn.gif" /></p>
+<p>Ici pas moins de 26 tirets sont nécessaires.</p>
+<p>Cette technique est utilisée en biologie pour mettre (entre autres) en évidence des parties 
+communes à deux séquences d'ADN.</p>
+<p>Encore une fois, on décompose un problème en sous-problèmes non-indépendants, comme le montre l'exemple suivant, qui nécéssite 4 tirets : </p>
+<p><img alt="adn" src="img/basse.gif" /></p>
+<p>Et dont le graphe de résolution est le suivant :</p>
+<p><img alt="adn" src="img/align-graphe.svg" /></p>
+<div class="admonition question">
+<p class="admonition-title">Exercice</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Question</label><div class="tabbed-content">
+<p>Quel est le chemin qui correspond à la solution animée ?</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Réponse</label><div class="tabbed-content">
+<p>Bas, gauche, gauche, droite, droite, bas.</p>
+</div>
+</div>
+</div>
+<p>Le graphe de résolution n'est pas un arbre : les sous-problèmes ne sont pas indépendants, on a tout intérêt à utiliser 
+la programmation dynamique.</p>
+<p>Notons aussi qu'on peut résoudre le problème de 2 manières :</p>
+<ul>
+<li>on peut aligner les 2 chaînes « à gauche » et procéder sans le sens de la lecture;</li>
+<li>on peut aussi les aligner « à droite » et procéder de droite à gauche.</li>
+</ul>
+<p>Enfin, il n'y a pas toujours <em>unicité</em> de la solution, comme le prouve l'exemple ci-dessous :</p>
+<div class="highlight"><pre><span></span><code>BEC            B-EC             BE-C
+BAC            BA-C             B-AC
+</code></pre></div>
+<p>Il y a au moins deux méthodes pour programmer cet algorithme :</p>
+<ul>
+<li>Récursivement, comme on l'a fait pour le rendu de monnaie;</li>
+<li>Itérativement, à l'aide d'une matrice.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Programmation dynamique itérative de l'alignement de séquence</p>
+<p><a href="https://capytale2.ac-paris.fr/web/c-auth/list?returnto=/web/code/4320-19387">L'activité est ici.</a>.</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ch24/diviser_pour_regner.html" class="md-footer__link md-footer__link--prev" aria-label="Précédent: CH24 : diviser pour régner" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              CH24 : diviser pour régner
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ch26/recherche_textuelle.html" class="md-footer__link md-footer__link--next" aria-label="Suivant: CH26 : recherche textuelle" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              CH26 : recherche textuelle
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:uglimusic@gmail.com" target="_blank" rel="noopener" title="Écrire à l&#39;auteur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>

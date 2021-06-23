@@ -1,0 +1,941 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>CH27 : protocoles de routage - NSI au lycée Rabelais de Saint Brieuc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#protocoles-de-routages" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-header__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI au lycée Rabelais de Saint Brieuc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CH27 : protocoles de routage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Mode sombre" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Mode clair" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nsi1/index.html" class="md-tabs__link">
+        NSI1
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        NSI2
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-nav__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    NSI au lycée Rabelais de Saint Brieuc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        NSI1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/initiation_au_shell_linux/activite.html" class="md-nav__link">
+        Activité : initiation au shell linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch18/reseaux.html" class="md-nav__link">
+        CH18 : Réseaux - principes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch19/reseau_local.html" class="md-nav__link">
+        CH19 : Réseau local
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch20/controle_de_transmission.html" class="md-nav__link">
+        CH20 : Contrôle de transmission
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        NSI2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          NSI2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch24/diviser_pour_regner.html" class="md-nav__link">
+        CH24 : diviser pour régner
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch25/programmation_dynamique.html" class="md-nav__link">
+        CH25 : programmation dynamique
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch26/recherche_textuelle.html" class="md-nav__link">
+        CH26 : recherche textuelle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CH27 : protocoles de routage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="protocoles_de_routage.html" class="md-nav__link md-nav__link--active">
+        CH27 : protocoles de routage
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#situation" class="md-nav__link">
+    Situation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-protocole-rip" class="md-nav__link">
+    Le protocole RIP
+  </a>
+  
+    <nav class="md-nav" aria-label="Le protocole RIP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-initialisation" class="md-nav__link">
+    Étape 1 : initialisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-premiere-iteration-de-rip" class="md-nav__link">
+    Étape 2 : première itération de RIP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-convergence-apres-quelques-iterations" class="md-nav__link">
+    Étape 3 : convergence après quelques itérations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-protocole-ospf" class="md-nav__link">
+    Le protocole OSPF
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch28/calculabilite.html" class="md-nav__link">
+        CH28 : calculabilité et décidabilité
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="protocoles-de-routages">Protocoles de routages<a class="headerlink" href="#protocoles-de-routages" title="Permanent link">⚓︎</a></h1>
+<h2 id="situation">Situation<a class="headerlink" href="#situation" title="Permanent link">⚓︎</a></h2>
+<p>Lors d'une communication <em>via</em> un réseau, une machine appelée <em>client</em> doit envoyer une information à une autre machine 
+appelée <em>serveur</em>. Les termes client et serveur sont très larges et peuvent en fait</p>
+<ul>
+<li>désigner une machine aussi bien qu'une <em>application</em> s'exécutant sur cette machine;</li>
+<li>alterner au cours du temps (le client devient serveur et vice-versa).</li>
+</ul>
+<p>On a <a href="../../nsi1/ch18/reseaux.html#un-modele-informatique-tcpip">vu en classe de première</a> que l'information va être découpée en de multiples paquets de petite taille, et ces paquets doivent arriver à destination.</p>
+<p>Le troisième élément de la communication sont les <a href="../../nsi1/ch18/reseaux.html#couche-reseau">routeurs</a>. Ils peuvent
+être de deux types</p>
+<ul>
+<li>
+<p><em>routeurs d'accès</em> lorsqu'ils sont en <em>bordure de réseau</em>, c'est à dire qu'ils sont directement interfacés avec un réseau 
+  <em>local</em>.</p>
+</li>
+<li>
+<p><em>internes</em> sinon.</p>
+</li>
+</ul>
+<p>Voici un schéma qui montre la <em>topologie</em> d'un réseau, c'est à dire son architecture :</p>
+<p><img alt="topo1" src="img/topo1.svg" width="100%" /></p>
+<details class="note"><summary>Explications sur les paires (sous-réseau/masque)</summary><p>Une <em>paire (sous-réseau/masque)</em> est composée</p>
+<ul>
+<li>de l'adresse IP du réseau, notée sur 4 octets, soit 32 bits;</li>
+<li>du nombres de bits qui correspondent à la partie fixe des IP du réseau.</li>
+</ul>
+<p>Par exemple, le réseau local du client est 192.168.1.0/24 ce qui veut dire que :</p>
+<ul>
+<li>l'adresse IP du réseau est 192.168.1.0;</li>
+<li>les 24 bits (dans le sens de la lecture) sont fixes.</li>
+</ul>
+<p>Puisque qu'une adresse IP est codée sur 32 octets, cela veut dire que seuls les 8 derniers bits (c'est-à-dire le 
+dernier octet) peuvent varier. L'ensemble des IP de ce réseau est donc 
+- 192.168.1.0 : l'IP du réseau même;
+- 192.168.1.x : l'IP des machines du réseaux, avec <span class="arithmatex">\(1\leqslant x\leqslant 254\)</span> (soit 254 machines au total;
+- 192.168.1.255 : l'IP du réseau dédiée à la diffusion en masse (<em>broadcast</em>).</p>
+</details>
+<p>Le réseau comprenant R1 et R3 a pour adresse 10.0.1.0/30 : il ne reste donc que 2 bits libres pour adresser les 
+ machines, soit 4 possibilités.</p>
+<p>Si on enlève l'adresse réseau 10.0.1.0 et l'adresse <em>broadcast</em> 10.0.1.3 il reste 2 IP, une pour chaque routeur.
+ Ajoutons que R1 possède aussi une IP dans le réseau local du client et réalise ainsi une <em>passerelle</em>.</p>
+<p>Ainsi par exemple Dans ce réseau R1 peut avoir l'IP 10.0.1.1 et R3 10.0.1.2 (ou l'inverse).</p>
+<p>Lorsqu'un paquet doit transiter du client au serveur, il doit obligatoirement passer la passerelle R1 et là encore il
+ n'y a pas le choix, il passera par R3.</p>
+<p>Mais ensuite ? Comment la route à emprunter est-elle déterminée ? Est-ce la même tout le temps ?</p>
+<p>En fait, chaque routeur possède une <em>table de routage</em> qui associe les IP de destination à des routeurs particuliers.
+ Ces tables ne sont pas fixes et <em>a priori</em> tous les routeurs ont le même statut (il n'y a pas de routeur privilégié).</p>
+<p>Les méthodes qui permettent de gérer ces tables de routage sont appelés des <em>protocoles de routage</em>.</p>
+<h2 id="le-protocole-rip">Le protocole RIP<a class="headerlink" href="#le-protocole-rip" title="Permanent link">⚓︎</a></h2>
+<details class="note"><summary>Principe</summary><p>À intervalles de temps régulieur, chaque routeur envoie à ses voisins </p>
+<ul>
+<li>les adresses de ses propres voisins;</li>
+<li>les adresses qu'il a reçues par d'autres routeurs</li>
+</ul>
+<p>Pour chaque adresse, il indique également combien de sauts sont nécessaires pour l'atteindre, c'est à dire par combien
+de routeurs (y compris lui-même) il faut passer.</p>
+<p>Lorsqu'un routeur reçoit les informations d'un routeur voisin, 4 cas peuvent survenir :</p>
+<ol>
+<li>Une route vers un nouveau sous-réseau lui est présentée : il l'ajoute à sa table de routage.</li>
+<li>Une route vers un sous-réseau déjà connue lui est présentée, mais plus courte que la précédente. Dans
+    ce cas l'ancienne est remplacée par celle-ci.</li>
+<li>Une nouvelle route plus longue lui est transmise : il l'ignore. </li>
+<li>Une route existante, passant par le même voisin, mais plus longue que celle de la table de routage lui est
+    présentée. Cela veut dire qu'un problème est survenu sur l'ancienne route. Celle-ci est donc effacée et remplacée 
+    par la plus longue.</li>
+</ol>
+</details>
+<p>Pour éviter les boucles, les distances doivent être au maximum de 15 (sinon elles sont ignorées). 
+RIP fonctionne donc sur des réseaux de taille modeste.</p>
+<h3 id="etape-1-initialisation">Étape 1 : initialisation<a class="headerlink" href="#etape-1-initialisation" title="Permanent link">⚓︎</a></h3>
+<p>Reprenons le réseau précédent et intéressons-nous uniquement aux routeurs R1 et R3.</p>
+<p>Au début de la mise en service du réseau voici la table de routage de R1 :</p>
+<table>
+<thead>
+<tr>
+<th align="center">destination</th>
+<th align="center">passerelle</th>
+<th align="center">interface</th>
+<th align="center">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10.0.1.0/30</td>
+<td align="center"></td>
+<td align="center">eth0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">192.168.1.0/24</td>
+<td align="center"></td>
+<td align="center">wlan0</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Elle indique que le sous-réseau local 192.168.1.0/24 est immédiatement accessible <em>via</em> l'interface <em>WiFi</em> wlan0 depuis
+ce propre routeur R1. Elle est donc à distance 1 de R1. De même l'autre sous-réseau est accessible <em>via</em> un port <em>Ethernet</em>
+du routeur nommé eth0 et est également à distance 1 de R1.</p>
+<p>Voici celle de R3 :</p>
+<table>
+<thead>
+<tr>
+<th align="center">destination</th>
+<th align="center">passerelle</th>
+<th align="center">interface</th>
+<th align="center">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10.1.1.0/30</td>
+<td align="center"></td>
+<td align="center">eth1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.1.2.0/30</td>
+<td align="center"></td>
+<td align="center">eth2</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.1.3.0/30</td>
+<td align="center"></td>
+<td align="center">eth3</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.1.4.0/30</td>
+<td align="center"></td>
+<td align="center">eth0</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>C'est la même chose : R3 est initialisé avec ses voisins directs. Notez que les noms des interfaces sont relatifs à R3, 
+c'est pourquoi, par exemple, R1 et R3 sont reliés par <em>Ethernet</em> sur le port eth0 de R1 et eth1 de R2. Ces ports peuvent
+avoir le même nom ou pas, peu importe car ces noms n'existent que relativement au routeur concerné.</p>
+<h3 id="etape-2-premiere-iteration-de-rip">Étape 2 : première itération de RIP<a class="headerlink" href="#etape-2-premiere-iteration-de-rip" title="Permanent link">⚓︎</a></h3>
+<p>Chaque routeur envoie ses informations à ses voisins. La table de R1 devient</p>
+<table>
+<thead>
+<tr>
+<th align="center">destination</th>
+<th align="center">passerelle</th>
+<th align="center">interface</th>
+<th align="center">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10.0.1.0/30</td>
+<td align="center"></td>
+<td align="center">eth0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">192.168.1.0/24</td>
+<td align="center"></td>
+<td align="center">wlan0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.0.2.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">10.0.3.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">10.0.4.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+<p>Ainsi R1 sait qu'il peut atteindre les machines du sous-réseau 10.1.2.0/30 <em>via</em> la passerelle 10.1.1.2 (IP de R2) sur
+le sous-réseau 10.1.1.0/30 sur lequel R1 et R2 figurent. L'interface est eth0 et la distance est 2.</p>
+<p>Voici la table de R3 :</p>
+<table>
+<thead>
+<tr>
+<th align="center">destination</th>
+<th align="center">passerelle</th>
+<th align="center">interface</th>
+<th align="center">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10.1.1.0/30</td>
+<td align="center"></td>
+<td align="center">eth1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">192.168.1.0/24</td>
+<td align="center">10.1.1.1</td>
+<td align="center">eth1</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">10.1.2.0/30</td>
+<td align="center"></td>
+<td align="center">eth2</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.1.3.0/30</td>
+<td align="center"></td>
+<td align="center">eth3</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.1.4.0/30</td>
+<td align="center"></td>
+<td align="center">eth0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.1.7.0/30</td>
+<td align="center">10.1.4.2</td>
+<td align="center">eth0</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="etape-3-convergence-apres-quelques-iterations">Étape 3 : convergence après quelques itérations<a class="headerlink" href="#etape-3-convergence-apres-quelques-iterations" title="Permanent link">⚓︎</a></h3>
+<p>Dans notre cas, après 2 autres itérations, les informations se stabilisent, on dit qu'il y a <em>convergence</em> et chaque 
+routeur connaît le chemin à emprunter pour accéder à n'importe quel sous-réseau.</p>
+<p>En particulier la table de R1 est la suivante :</p>
+<table>
+<thead>
+<tr>
+<th align="center">destination</th>
+<th align="center">passerelle</th>
+<th align="center">interface</th>
+<th align="center">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">10.0.1.0/30</td>
+<td align="center"></td>
+<td align="center">eth0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">192.168.1.0/24</td>
+<td align="center"></td>
+<td align="center">wlan0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">10.0.2.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">10.0.3.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">10.0.7.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">192.162.6.0/30</td>
+<td align="center">10.1.1.2</td>
+<td align="center">eth0</td>
+<td align="center">4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="le-protocole-ospf">Le protocole OSPF<a class="headerlink" href="#le-protocole-ospf" title="Permanent link">⚓︎</a></h2>
+<p>à venir</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ch26/recherche_textuelle.html" class="md-footer__link md-footer__link--prev" aria-label="Précédent: CH26 : recherche textuelle" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              CH26 : recherche textuelle
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ch28/calculabilite.html" class="md-footer__link md-footer__link--next" aria-label="Suivant: CH28 : calculabilité et décidabilité" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              CH28 : calculabilité et décidabilité
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:uglimusic@gmail.com" target="_blank" rel="noopener" title="Écrire à l&#39;auteur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>

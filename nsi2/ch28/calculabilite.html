@@ -1,0 +1,915 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>CH28 : calculabilité et décidabilité - NSI au lycée Rabelais de Saint Brieuc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#calculabilite-et-decidabilite" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-header__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NSI au lycée Rabelais de Saint Brieuc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CH28 : calculabilité et décidabilité
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Mode sombre" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Mode clair" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Accueil
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../nsi1/index.html" class="md-tabs__link">
+        NSI1
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        NSI2
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="NSI au lycée Rabelais de Saint Brieuc" class="md-nav__button md-logo" aria-label="NSI au lycée Rabelais de Saint Brieuc" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    NSI au lycée Rabelais de Saint Brieuc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Accueil
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        NSI1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          NSI1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/initiation_au_shell_linux/activite.html" class="md-nav__link">
+        Activité : initiation au shell linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch18/reseaux.html" class="md-nav__link">
+        CH18 : Réseaux - principes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch19/reseau_local.html" class="md-nav__link">
+        CH19 : Réseau local
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nsi1/ch20/controle_de_transmission.html" class="md-nav__link">
+        CH20 : Contrôle de transmission
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        NSI2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NSI2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          NSI2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Infos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch24/diviser_pour_regner.html" class="md-nav__link">
+        CH24 : diviser pour régner
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch25/programmation_dynamique.html" class="md-nav__link">
+        CH25 : programmation dynamique
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch26/recherche_textuelle.html" class="md-nav__link">
+        CH26 : recherche textuelle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch27/protocoles_de_routage.html" class="md-nav__link">
+        CH27 : protocoles de routage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CH28 : calculabilité et décidabilité
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="calculabilite.html" class="md-nav__link md-nav__link--active">
+        CH28 : calculabilité et décidabilité
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#un-peu-dhistoire-et-des-definitions" class="md-nav__link">
+    Un peu d'Histoire et des définitions
+  </a>
+  
+    <nav class="md-nav" aria-label="Un peu d'Histoire et des définitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithme" class="md-nav__link">
+    Algorithme
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonction-calculable" class="md-nav__link">
+    Fonction calculable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probleme-decidable" class="md-nav__link">
+    Problème décidable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nombre-calculable" class="md-nav__link">
+    Nombre calculable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-programme-est-une-donnee-comme-les-autres" class="md-nav__link">
+    Un programme est une donnée comme les autres
+  </a>
+  
+    <nav class="md-nav" aria-label="Un programme est une donnée comme les autres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cest-deja-vrai-pour-les-fonctions" class="md-nav__link">
+    C'est déjà vrai pour les fonctions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cela-reste-vrai-pour-les-programmes" class="md-nav__link">
+    Cela reste vrai pour les programmes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-probleme-indecidable" class="md-nav__link">
+    Un problème indécidable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#des-nombres-incalculables" class="md-nav__link">
+    Des nombres incalculables ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peut-on-enfoncer-le-clou-encore-un-peu-plus" class="md-nav__link">
+    Peut-on enfoncer le clou encore un peu plus ?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="calculabilite-et-decidabilite">Calculabilité et décidabilité<a class="headerlink" href="#calculabilite-et-decidabilite" title="Permanent link">⚓︎</a></h1>
+<h2 id="un-peu-dhistoire-et-des-definitions">Un peu d'Histoire et des définitions<a class="headerlink" href="#un-peu-dhistoire-et-des-definitions" title="Permanent link">⚓︎</a></h2>
+<h3 id="algorithme">Algorithme<a class="headerlink" href="#algorithme" title="Permanent link">⚓︎</a></h3>
+<p>Depuis l'Antiquité l'humanité utilise des <em>méthodes de calcul</em> pour résoudre des problèmes, mais jusqu'au début du
+vingtième siècle on n'avait aucune définition précise de ce qu'est une méthode de calcul.</p>
+<p>Pourtant lors du Congrès International des Mathématiciens de Paris de 1900, David Hilbert a formulé 24 problèmes, dont
+le dixième dont l'énoncé peut être vulgarisé en :</p>
+<p>« Existe-t-il une méthode générale pour déterminer quelles équations diophantiennes on des solutions et quelles
+équations diophantiennes n'en ont pas ? »</p>
+<details class="note"><summary>Equations diophantiennes</summary><p>Une équation diophantienne est une équation </p>
+<ul>
+<li>
+<p>à une ou plusieurs inconnues;</p>
+</li>
+<li>
+<p>polynomiale : ne figurent que des puissances entières des inconnues;</p>
+</li>
+<li>
+<p>à coefficients entiers;</p>
+</li>
+<li>
+<p>dont on cherche des solutions entières.</p>
+</li>
+</ul>
+<p><span class="arithmatex">\(x^2-3x+2 = 0\)</span> est une équation diophantienne de solution 1 et 2.</p>
+<p><span class="arithmatex">\(x^2+y^2=z^2\)</span> en est une autre, ses solutions sont les triplets pythagoriciens.</p>
+<p><span class="arithmatex">\(3x^5+2xyz^3+y^2-z+2=0\)</span> en est une dernière...</p>
+</details>
+<p>Ce sont les mathématiciens Church, Kleene, Turing et Gödel qui, entre 1931 et 1936 ont identifié la notion d'algorithme.</p>
+<p>Chacun d'entre eux s'intéressa à sa manière et plus ou moins indépendamment des autres à une catégorie de fonctions. Ils
+reconnurent ensuite que ces différentes classes coïncidaient et appelèrent cette classe la classe des fonctions
+<em>calculables</em>. C'est ce qu'on appelle la <em>thèse de Church</em> : tous les modèles de calculs qui ont été utilisés pour
+expliquer ce qu'est une fonction calculable sont équivalents.</p>
+<div class="admonition info">
+<p class="admonition-title">Fonction calculable</p>
+<p>Une fonction est dite calculable s'il existe une façon finie de la décrire qui permette effectivement d'en
+calculer toutes les valeurs.</p>
+</div>
+<p>Cette définition fixe également la notion d'algorithme. Ce sont les travaux de Turing qui ont abouti la définition
+d'algorithme la plus pratique à utiliser : en 1936 la notion d'algorithme était acquise.</p>
+<div class="admonition info">
+<p class="admonition-title">Algorithme</p>
+<p>Un algorithme est suite finie d'instructions qu'une machine de Turing peut effectuer.</p>
+</div>
+<p>Depuis, on s'est employé à créer des entités distinctes des machines de Turing, mais qui sont dite <em>Turing-complètes</em>,
+c'est-à-dire qui peuvent « faire tout ce que peut faire une machine de Turing »</p>
+<p>Les langages de programmation que nous connaissons (Python, Java, C++ *et cætera) sont Turing-complets (ouf !), mais
+HTML seul (sans CSS) n'est pas Turing-complet.</p>
+<h3 id="fonction-calculable">Fonction calculable<a class="headerlink" href="#fonction-calculable" title="Permanent link">⚓︎</a></h3>
+<p>Dans le cadre de notre cours on peut donc reformuler :</p>
+<div class="admonition info">
+<p class="admonition-title">Fonction calculable (deuxième définition)</p>
+<p>Une fonction est calculable si on peut la programmer (en Python par exemple).</p>
+</div>
+<h3 id="probleme-decidable">Problème décidable<a class="headerlink" href="#probleme-decidable" title="Permanent link">⚓︎</a></h3>
+<p>Dès lors, on peut s'intéresser à la notion de <em>problème décidable</em>. Un problème de <em>décision</em> peut s'envisager ainsi</p>
+<table>
+<thead>
+<tr>
+<th align="center">cas général</th>
+<th align="center">exemple 1</th>
+<th>exemple 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Nom du problème</td>
+<td align="center">Primalité d'un entier</td>
+<td>Problème de l'arrêt</td>
+</tr>
+<tr>
+<td align="center">Donnée : spécification d'une <br> instance du problème</td>
+<td align="center">un entier naturel</td>
+<td>un programme<br>(écrit en Python par exemple)</td>
+</tr>
+<tr>
+<td align="center">Réponse : propriété portant sur<br> une instance qui spécifie les<br> instances positives du problème</td>
+<td align="center">décider si ce <br>nombre est premier</td>
+<td>décider si ce programme <br> s'arrête</td>
+</tr>
+</tbody>
+</table>
+<p>Sans rentrer dans les détails, on peut associer aux problèmes de décision des fonctions de décision. Un problème est
+alors appelé <em>décidable</em> si la fonction associée est calculable. Cela nous permet de formuler une définition :</p>
+<div class="admonition info">
+<p class="admonition-title">Problème décidable</p>
+<p>Un problème est décidable si on peut écrire une fonction (en Python ou autre) qui </p>
+<ul>
+<li>
+<p>en entrée prend les données du problème</p>
+</li>
+<li>
+<p>renvoie <code class="highlight"><span class="kc">True</span></code> ou <code class="highlight"><span class="kc">False</span></code> suivant que les les données satisfont le problème ou non.  </p>
+</li>
+</ul>
+</div>
+<p>Par exemple, le problème « <span class="arithmatex">\(n\in\mathbb{N}\)</span> est-il premier ? » est-il décidable :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">est_premier</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p>L'algorithme implémenté en Python est fort peu efficace mais là n'est pas le problème : il existe. Donc le problème de
+la primalité d'un entier positif est décidable.</p>
+<p>Dire qu'un problème est <em>indécidable</em> signifie donc qu'il n'existe pas d'algorithme permettant de résoudre ce problème
+dans tous les cas (quelles que soient les données du problème).</p>
+<h3 id="nombre-calculable">Nombre calculable<a class="headerlink" href="#nombre-calculable" title="Permanent link">⚓︎</a></h3>
+<p>Tant que nous y sommes, définissons ce qu'est un nombre calculable : </p>
+<div class="admonition info">
+<p class="admonition-title">Nombre calculable</p>
+<p>Un nombre réel est calculable si et seulement si il existe un algorithme permettant de calculer autant de décimales
+que l'on veut de l'écriture en base 10 de ce réel.</p>
+</div>
+<p>Évidemment si le nombre n'est pas une fraction, son écriture décimale n'est pas périodique, il est donc hors de question
+de chercher à les connaître toutes (sauf cas particulier où l'on a nous même fabriqué l'écriture décimale du nombre).</p>
+<p>Par exemple, on peut montrer que le nombre <span class="arithmatex">\(e\)</span> (celui qui permet de construire la fonction exponentielle) vaut </p>
+<div class="arithmatex">\[\sum_{k=0}^{+\infty}\frac{1}{k!}=\frac{1}{0!}+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\ldots\]</div>
+<p>Avec <span class="arithmatex">\(0!=1\)</span>, rappelons-le.</p>
+<p>Il y a une infinité de termes dans la somme (c'est une limite), mais en prenant un nombre suffisant des premiers termes
+de cette somme, on peut en déterminer autant de décimales de <span class="arithmatex">\(e\)</span> que l'on désire.</p>
+<details class="note"><summary>Exercice</summary><ol>
+<li>Programmer une fonction <code>factorielle</code> dynamique.</li>
+<li>Programmer une fonction <code>approx</code> qui<ul>
+<li>en entrée prend un entier positif <span class="arithmatex">\(n\)</span>.</li>
+<li>renvoie <span class="arithmatex">\(\sum_{k=0}^{+n}\frac{1}{k!}\)</span> en calculant suivant la règle de la photo de classe pour
+minimiser les erreurs d'arithmétique en virgule flottante.</li>
+</ul>
+</li>
+<li>Programmer la fonction <code>decimales_de_e</code> qui<ul>
+<li>en entrée prend un entier d positif;</li>
+<li>renvoie l'écriture décimale de <span class="arithmatex">\(e\)</span> avec les <span class="arithmatex">\(n\)</span> premières décimales exactes.</li>
+</ul>
+</li>
+</ol>
+<p>Pour la dernière question, on pourra utiliser la fonction <code class="highlight"><span class="nb">round</span></code> : <code class="highlight"><span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span></code> tronque <code>a</code> à la quatrième décimale.</p>
+<p><strong>Remarque</strong> : écrit tel quel, ce programme ne permet pas d'afficher beaucoup de décimales : 17 au maximum. Cela est dû
+au format de représentation des <code class="highlight"><span class="nb">float</span></code> de Python. Pour en avoir plus, on pourrait s'y prendre autrement...</p>
+</details>
+<h2 id="un-programme-est-une-donnee-comme-les-autres">Un programme est une donnée comme les autres<a class="headerlink" href="#un-programme-est-une-donnee-comme-les-autres" title="Permanent link">⚓︎</a></h2>
+<h3 id="cest-deja-vrai-pour-les-fonctions">C'est déjà vrai pour les fonctions<a class="headerlink" href="#cest-deja-vrai-pour-les-fonctions" title="Permanent link">⚓︎</a></h3>
+<p>Lorsque nous avons étudié la programmation fonctionnelle, nous avons expliqué qu'il est possible de passer une fonction
+en paramètre à une autre fonction.</p>
+<p>Voici un exemple :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">nulle_en_zero</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">6</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">epsilon</span>
+</code></pre></div>
+<p>La fonction <code>nulle_en_zero</code> :</p>
+<ul>
+<li>prend en entrée une fonction <span class="arithmatex">\(f\)</span> (qui est censée être une fonction numérique définie « au voisinage de zéro »);</li>
+<li>renvoie <code class="highlight"><span class="kc">True</span></code> si <span class="arithmatex">\(f(0)\)</span> est très petit et <code class="highlight"><span class="kc">False</span></code> sinon.</li>
+</ul>
+<h3 id="cela-reste-vrai-pour-les-programmes">Cela reste vrai pour les programmes<a class="headerlink" href="#cela-reste-vrai-pour-les-programmes" title="Permanent link">⚓︎</a></h3>
+<p>De la même manière, on peut donner un programme en entrée d'un autre programme. D'ailleurs, on le fait plus souvent
+qu'on ne le croit :</p>
+<ul>
+<li>Sous Linux / macOS :
+    <div class="highlight"><pre><span></span><code>cat fichier.txt
+</code></pre></div></li>
+</ul>
+<p>demande au programme <code>cat</code> d'afficher le contenu du fichier <code>fichier.txt</code></p>
+<ul>
+<li>Sous Windows / Linux / macOS :
+    <div class="highlight"><pre><span></span><code>python fichier.py
+</code></pre></div></li>
+</ul>
+<p>donne le fichier <code>fichier.py</code> à l'<em>interpréteur</em> Python pour que celui-ci l'exécute.</p>
+<ul>
+<li>Lorsqu'on a écrit un programme en langage C, tel celui-ci :
+    <div class="highlight"><pre><span></span><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello World!&quot;);
+    return 0;
+}  
+</code></pre></div></li>
+</ul>
+<p>et qu'on a sauvegardé ce fichier texte sous le nom <code>hello_world.c</code>, alors on utilise un <em>compilateur</em> C qui prend en
+entrée ce fichier et produit (sous Windows) un fichier exécutable <code>hello_world.exe</code>.</p>
+<ul>
+<li>
+<p>Quand on compresse un programme, on utilise un autre programme pour le compresser.</p>
+</li>
+<li>
+<p>Quand on utilise un antivirus, il prend (entre autres) des programmes et les analyse.</p>
+</li>
+<li>
+<p><em>Et cætera</em>.</p>
+</li>
+</ul>
+<h2 id="un-probleme-indecidable">Un problème indécidable<a class="headerlink" href="#un-probleme-indecidable" title="Permanent link">⚓︎</a></h2>
+<p>C'est Alan Turing qui a prouvé le résultat suivant. Il utilisait (évidemment) des machines de Turing dans sa preuve.
+Puisque Python est Turing-complet, nous utiliserons Python !</p>
+<p>Lorsqu'on programme une fonction, il se peut qu'elle ne s'arrête pas. C'est souvent très embêtant, d'où la question 
+suivante :</p>
+<p>Existe-t-il une fonction permettant de déterminer si une fonction donnée s'arrête où non et ce, quelle que soit cette 
+fonction donnée et les paramètres qu'on lui passe ?</p>
+<p>Cette question pose ce que l'on appelle <em>le problème de l'arrêt</em>.</p>
+<p>Supposons qu'une telle fonction existe, appelons-là <code>A</code> :
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">A</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span><span class="nb">bool</span> <span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Renvoie True si f(x) s&#39;arrête et False sinon</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+</code></pre></div></p>
+<p>Construisons alors la fonction <code>D</code> suivante :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">A</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p>Que peut-on dire de <code>D(D)</code> ?</p>
+<ul>
+<li>Si <code>D(D)</code> se termine, alors cela signifie que <code>A(D,D)</code> est faux, donc que <code>D(D)</code> ne se termine pas.</li>
+<li>Si <code>D(D)</code> ne se termine pas, alors on est entré dans la boucle <code class="highlight"><span class="k">while</span></code>, donc <code>A(D,D)</code> est vrai et 
+  alors <code>D,(D)</code> se termine.</li>
+</ul>
+<p>Dans les deux cas on arrive à une contradiction. Ainsi notre supposition est erronée :</p>
+<p>La fonction A n'existe pas. Autrement dit il n'existe pas de programme permettant de déterminer systématiquement
+si un programme donné s'arrête ou non. Le problème de l'arrêt est <em>indécidable</em>.</p>
+<p>Ce problème est assez abstrait, il existe des problèmes plus concrets qui sont pourtants indécidables, tel le 
+<a href="https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_correspondance_de_Post">problème de correspondance de Post</a> ou le problème 
+de pavage du plan avec un nombre fini de forme polygonales donné.</p>
+<h2 id="des-nombres-incalculables">Des nombres incalculables ?<a class="headerlink" href="#des-nombres-incalculables" title="Permanent link">⚓︎</a></h2>
+<p>Il est facile de montrer que la majorité des nombres réels sont incalculables, mais pour autant, il a fallu attendre 
+&lt; date manquante &gt; pour que Gregory Chaitin exhibe un nombre <span class="arithmatex">\(\Omega\)</span> non calculable. Sa définition est extrêmement complexe
+et repose sur les probabilités d'arrêts de certains algorithmes. </p>
+<h2 id="peut-on-enfoncer-le-clou-encore-un-peu-plus">Peut-on enfoncer le clou encore un peu plus ?<a class="headerlink" href="#peut-on-enfoncer-le-clou-encore-un-peu-plus" title="Permanent link">⚓︎</a></h2>
+<p>Oui ! En 1931 Kurt Gödel a démontré le <em>premier théorème d'incomplétude</em>, riche en implications tant scientifiques que 
+philosophiques. Pour démontrer des théorèmes, les mathématiciens doivent utiliser un <em>système formel</em> avec des axiomes, 
+<em>et cætera</em>. Son théorème énonce que tout système formel assez puissant pour démontrer les théorèmes d'arithmétiques (donc
+ en particulier celui que nous utilisons sans vraiment y faire attention) est <em>incomplet</em> : Il existe des propositions
+pour lesquelles il n'existe ni de preuve qu'elles sont vraies, ni de preuve qu'elles sont fausses.</p>
+<p>Ce résultat est à mettre en parallèle avec les notions précédentes même s'il n'est pas de même nature : il dépend du
+système formel dans lequel on se place, au contraire de la décidabilité et la calculabilité...</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ch27/protocoles_de_routage.html" class="md-footer__link md-footer__link--prev" aria-label="Précédent: CH27 : protocoles de routage" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              CH27 : protocoles de routage
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+      <a href="mailto:uglimusic@gmail.com" target="_blank" rel="noopener" title="Écrire à l&#39;auteur" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.expand", "navigation.top", "toc.integrate", "header.autohide"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>
